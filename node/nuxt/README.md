@@ -1,6 +1,6 @@
-# Dub with Go
+# Dub with Nuxt
 
-This example shows how to use Dub with [Go](https://go.dev/).
+This example shows how to use Dub with [Nuxt](https://nuxt.com/docs).
 
 ## Getting Started
 
@@ -18,16 +18,23 @@ DUB_WORKSPACE_ID=ws_clrei...
 2. Install dependencies:
 
 ```shell
-go get .
+pnpm install
 ```
 
-3. Run the app
+3. Run the Nuxt dev server:
 
 ```shell
-go run .
+pnpm run dev
 ```
 
-This will create a new link in your Dub workspace and display the shortened URL in the console.
+4. Run the following command in your terminal:
+
+```shell
+curl --request POST \
+  --url http://localhost:3000/api/links
+```
+
+This will create a new link in your Dub workspace and display the API response in the terminal.
 
 ## Resources
 
