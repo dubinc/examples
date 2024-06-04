@@ -1,5 +1,5 @@
 {
-  "name": "remix",
+  "name": "dub-remix-example",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -14,7 +14,7 @@
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
-    "dub": "^0.29.15",
+    "dub": "latest",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

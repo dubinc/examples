@@ -7,9 +7,6 @@ export const loader = async () => {
       url: "https://www.google.com",
     });
 
-    // A new link has been created
-    console.log(result);
-
     return json(result, 200);
   } catch (error: any) {
     console.error(error);
