@@ -35,7 +35,7 @@ app.get("/upsert-link", async (req: Request, res: Response) => {
 // Update a link
 app.get("/update-link", async (req: Request, res: Response) => {
   try {
-    const result = await dub.links.create({
+    const result = await dub.links.update("clv3o9p9q000au1h0mc7r6l63", {
       url: "https://www.google.us",
     });
 
