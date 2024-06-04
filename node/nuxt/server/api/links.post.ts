@@ -4,6 +4,7 @@ export default defineEventHandler(async () => {
   try {
     const result = await dub.links.create({
       url: "https://www.google.com",
+      externalId: "12345", // Optional
     });
 
     return result;

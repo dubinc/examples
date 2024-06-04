@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { dub } from "./dub";
 import express, { Request, Response } from "express";
+import { ClicksTimeseries } from "dub/models/components";
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.get("/create-link", async (req: Request, res: Response) => {
   try {
     const result = await dub.links.create({
       url: "https://www.google.com",
+      externalId: "12345", // Optional
     });
 
     res.status(200).json(result);
@@ -23,7 +25,6 @@ app.get("/upsert-link", async (req: Request, res: Response) => {
   try {
     const result = await dub.links.upsert({
       url: "https://www.google.com",
-      externalId: "my-link-id",
     });
 
     res.status(200).json(result);
@@ -35,8 +36,14 @@ app.get("/upsert-link", async (req: Request, res: Response) => {
 // Update a link
 app.get("/update-link", async (req: Request, res: Response) => {
   try {
-    const result = await dub.links.update("LINK_ID OR EXTERNAL_ID", {
-      url: "https://www.google.us",
+    // Update a link by its linkId
+    let result = await dub.links.update("clv3o9p9q000au1h0mc7r6l63", {
+      url: "https://www.google.uk",
+    });
+
+    // Update a link by its externalId
+    result = await dub.links.update("ext_12345", {
+      url: "https://www.google.uk",
     });
 
     res.status(200).json(result);
@@ -45,18 +52,19 @@ app.get("/update-link", async (req: Request, res: Response) => {
   }
 });
 
-// Retrieve analytics for link
-// See the API reference to see all the options available https://dub.co/docs/api-reference/endpoint/retrieve-analytics
+// Retrieve the timeseries analytics for the last 7 days for a link
 app.get("/analytics", async (req: Request, res: Response) => {
   try {
     const result = await dub.analytics.retrieve({
-      linkId: "LINK_ID",
+      linkId: "clv3o9p9q000au1h0mc7r6l63",
       interval: "7d",
       event: "clicks",
       groupBy: "timeseries",
     });
 
-    res.status(200).json(result);
+    const timeseries = result as ClicksTimeseries[];
+
+    res.status(200).json(timeseries);
   } catch (error: any) {
     res.status(400).json(error);
   }

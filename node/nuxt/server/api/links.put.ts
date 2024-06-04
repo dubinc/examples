@@ -4,7 +4,6 @@ export default defineEventHandler(async () => {
   try {
     const result = await dub.links.upsert({
       url: "https://www.google.com",
-      externalId: "my-link-id",
     });
 
     return result;
