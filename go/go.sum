@@ -7,6 +7,8 @@ github.com/dubinc/dub-go v0.0.0-20240522212031-ad256a753d00 h1:DHi7CWsttGTGgAiag
 github.com/dubinc/dub-go v0.0.0-20240522212031-ad256a753d00/go.mod h1:WsVFXeNtGNtf1haqnJAtCFrojmk9x2vNuiT7EvGNeDU=
 github.com/dubinc/dub-go v0.0.1-beta h1:TdpJWkviVTR0v6IDmxvLxkA8xExab2zxVqAuMP7TK0w=
 github.com/dubinc/dub-go v0.0.1-beta/go.mod h1:WsVFXeNtGNtf1haqnJAtCFrojmk9x2vNuiT7EvGNeDU=
+github.com/dubinc/dub-go v0.0.3 h1:YWej9X3EBls1BmsdpH47bf6J5GDxO/fa9wec9hzmUcQ=
+github.com/dubinc/dub-go v0.0.3/go.mod h1:WsVFXeNtGNtf1haqnJAtCFrojmk9x2vNuiT7EvGNeDU=
 github.com/ericlagergren/decimal v0.0.0-20221120152707-495c53812d05 h1:S92OBrGuLLZsyM5ybUzgc/mPjIYk2AZqufieooe98uw=
 github.com/ericlagergren/decimal v0.0.0-20221120152707-495c53812d05/go.mod h1:M9R1FoZ3y//hwwnJtO51ypFGwm8ZfpxPT/ZLtO1mcgQ=
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
