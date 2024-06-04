@@ -3,8 +3,11 @@ import { dub } from "~/dub";
 
 export const loader = async () => {
   try {
-    const result = await dub.links.create({
-      url: "https://www.google.com",
+    const result = await dub.analytics.retrieve({
+      linkId: "LINK_ID",
+      interval: "7d",
+      event: "clicks",
+      groupBy: "timeseries",
     });
 
     return json(result, 200);

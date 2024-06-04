@@ -3,8 +3,8 @@ import { dub } from "~/dub";
 
 export const loader = async () => {
   try {
-    const result = await dub.links.create({
-      url: "https://www.google.com",
+    const result = await dub.links.update("LINK_ID", {
+      url: "https://www.google.us",
     });
 
     return json(result, 200);

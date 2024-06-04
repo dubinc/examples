@@ -35,7 +35,7 @@ app.get("/upsert-link", async (req: Request, res: Response) => {
 // Update a link
 app.get("/update-link", async (req: Request, res: Response) => {
   try {
-    const result = await dub.links.update("clv3o9p9q000au1h0mc7r6l63", {
+    const result = await dub.links.update("LINK_ID OR EXTERNAL_ID", {
       url: "https://www.google.us",
     });
 
@@ -50,6 +50,7 @@ app.get("/update-link", async (req: Request, res: Response) => {
 app.get("/analytics", async (req: Request, res: Response) => {
   try {
     const result = await dub.analytics.retrieve({
+      linkId: "LINK_ID",
       interval: "7d",
       event: "clicks",
       groupBy: "timeseries",
