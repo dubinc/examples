@@ -1,0 +1,10 @@
+{
+  "name": "dub/dub-php-example",
+  "description": "Dub PHP example",
+  "type": "project",
+  "require": {
+    "dub/dub-php": "*"
+  },
+  "license": "MIT",
+  "minimum-stability": "stable"
+}
