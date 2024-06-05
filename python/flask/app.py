@@ -18,7 +18,6 @@ def hello():
   try:
     res = d.links.create(request=operations.CreateLinkRequestBody(
        url='https://google.com',
-       tag_id="2"
     ))
   except Exception as e:
     return str(e)
