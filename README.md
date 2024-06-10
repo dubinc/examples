@@ -11,10 +11,10 @@ Our collection of examples showcases the power of Dub, an open-source link manag
 
 ## Examples
 
-- [Node.js](/node)
-- [Express](/node/express)
-- [Nuxt](/node/nuxt)
-- [Remix](/node/remix)
+- [TypeScript](/typescript)
+- [Express](/typescript/express)
+- [Nuxt](/typescript/nuxt)
+- [Remix](/typescript/remix)
 - [Go](/go)
 - [Python](/python)
 - [Flask](/python/flask)
