@@ -5,7 +5,6 @@ from dub.models import operations
 
 d = dub.Dub(
   token=os.environ['DUB_API_KEY'],
-  workspace_id=os.environ['DUB_WORKSPACE_ID'],
 )
 
 app = Flask(__name__)
