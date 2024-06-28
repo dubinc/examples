@@ -23,7 +23,7 @@ Our collection of examples showcases the power of Dub, an open-source link manag
 
 ## Read the Docs
 
-- [Dub API Reference](https://dub.co/docs)
+- [Dub API Reference](https://dub.co/docs/api-reference/introduction)
 - [Dub SDK Docs](https://dub.co/docs/sdks/overview)
 
 If you have any questions or suggestions, feel free to [submit a PR](https://github.com/dubinc/examples/pulls) with your suggestions!
