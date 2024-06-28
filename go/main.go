@@ -16,7 +16,6 @@ func main() {
 
 	d := dub.New(
 		dub.WithSecurity(os.Getenv("DUB_API_KEY")),
-		dub.WithWorkspaceID(os.Getenv("DUB_WORKSPACE_ID")),
 	)
 
 	createLink(d)

@@ -12,6 +12,7 @@ Our collection of examples showcases the power of Dub, an open-source link manag
 ## Examples
 
 - [TypeScript](/typescript)
+- [Next](/typescript/next)
 - [Express](/typescript/express)
 - [Nuxt](/typescript/nuxt)
 - [Remix](/typescript/remix)
