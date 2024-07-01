@@ -4,7 +4,7 @@ This example shows how to use Dub with [Next.js](https://nextjs.org/).
 
 ## Getting Started
 
-1. Add your Dub API key and Workspace ID to your `.env` file:
+1. Add your Dub API key to your `.env` file:
 
 ```shell
 cp .env.example .env
@@ -12,7 +12,6 @@ cp .env.example .env
 
 ```
 DUB_API_KEY=p4z...
-DUB_WORKSPACE_ID=ws_clrei...
 ```
 
 2. Install dependencies:
@@ -30,8 +29,7 @@ pnpm run dev
 ## Resources
 
 - [Dub API Reference](https://dub.co/docs/api-reference)
-- [Create API Key](https://app.dub.co/settings/tokens)
-- [Get Workspace ID](https://dub.co/help/article/how-to-get-workspace-id)
+- [Create API Key](https://dub.co/docs/api-reference/tokens)
 
 ## Contributing
 

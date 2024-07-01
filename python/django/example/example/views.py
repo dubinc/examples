@@ -5,7 +5,6 @@ from django.http import JsonResponse
 
 d = dub.Dub(
   token=os.environ['DUB_API_KEY'],
-  workspace_id=os.environ['DUB_WORKSPACE_ID'],
 )
 
 # Create a short

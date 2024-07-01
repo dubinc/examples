@@ -17,11 +17,10 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Set your Dub API key and Workspace ID as environment variables:
+3. Set your Dub API key as a environment variable:
 
 ```shell
 export DUB_API_KEY="p4z..."
-export DUB_WORKSPACE_ID="ws_clrei..."
 ```
 
 4. Run the Flask app:
@@ -37,8 +36,7 @@ This will create a new link in your Dub workspace and display the API response i
 ## Resources
 
 - [Dub API Reference](https://dub.co/docs/api-reference)
-- [Create API Key](https://app.dub.co/settings/tokens)
-- [Get Workspace ID](https://dub.co/help/article/how-to-get-workspace-id)
+- [Create API Key](https://dub.co/docs/api-reference/tokens)
 
 ## Contributing
 
