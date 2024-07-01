@@ -1,17 +1,13 @@
-PATH
-  remote: /Users/kiran/Desktop/dub-ruby
+GEM
+  remote: https://rubygems.org/
   specs:
+    domain_name (0.6.20240107)
     dub (0.1.0)
       faraday
       faraday-multipart
       rack
       rake
       sorbet
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    domain_name (0.6.20240107)
     faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-multipart (1.0.4)
@@ -54,7 +50,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  dub!
+  dub (~> 0.1.0)
   nylas (~> 6.0)
   sorbet-runtime (~> 0.5.11460)
 
