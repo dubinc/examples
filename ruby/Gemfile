@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+gem "dub", "~> 0.1.0"
+gem "nylas", "~> 6.0"
+
+gem "sorbet-runtime", "~> 0.5.11460"
+
+# Use a local dub gem
+
+# gem "dub", path: "/Users/kiran/Desktop/dub-ruby"
