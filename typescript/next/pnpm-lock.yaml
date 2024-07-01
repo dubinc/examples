@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   dub:
-    specifier: ^0.30.1
-    version: 0.30.1(zod@3.23.8)
+    specifier: ^0.30.3
+    version: 0.30.3(zod@3.23.8)
   next:
     specifier: 14.2.4
     version: 14.2.4(react-dom@18.3.1)(react@18.3.1)
@@ -732,8 +732,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dub@0.30.1(zod@3.23.8):
-    resolution: {integrity: sha512-kwW8LKtIklNpm7x6uKEDpMpsvjgiNR/uU56t5wURH756g0RV89xZguVdK0D1w6yDgk7XIhaALXyCVfRYeRr0hw==}
+  /dub@0.30.3(zod@3.23.8):
+    resolution: {integrity: sha512-NLVkKitffILdXsbhrgamgfgniftc72ujDzM24Z7qzAhm+iF+ZQcvK174L3RknUokD+/dSG+PnHDIdWDIMswveQ==}
     peerDependencies:
       zod: '>= 3'
     dependencies:
