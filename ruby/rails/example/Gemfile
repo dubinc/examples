@@ -65,3 +65,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "dub", "~> 0.1.0"
+
+gem 'sorbet-runtime'

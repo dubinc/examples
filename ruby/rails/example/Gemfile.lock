@@ -100,7 +100,19 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     drb (2.2.1)
+    dub (0.1.0)
+      faraday
+      faraday-multipart
+      rack
+      rake
+      sorbet
     erubi (1.13.0)
+    faraday (2.9.2)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.1.0)
+      net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -130,7 +142,10 @@ GEM
     mini_mime (1.1.5)
     minitest (5.24.1)
     msgpack (1.7.2)
+    multipart-post (2.4.1)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -214,6 +229,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sorbet (0.5.11463)
+      sorbet-static (= 0.5.11463)
+    sorbet-runtime (0.5.11463)
+    sorbet-static (0.5.11463-aarch64-linux)
+    sorbet-static (0.5.11463-universal-darwin)
+    sorbet-static (0.5.11463-x86_64-linux)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -239,6 +260,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.13.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -265,12 +287,14 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dub (~> 0.1.0)
   importmap-rails
   jbuilder
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
   redis (>= 4.0.1)
   selenium-webdriver
+  sorbet-runtime
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
