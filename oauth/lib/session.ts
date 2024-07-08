@@ -17,4 +17,5 @@ export interface User {
 
 export interface SessionData {
   user?: User;
+  accessToken?: string;
 }

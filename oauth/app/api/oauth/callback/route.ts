@@ -47,9 +47,11 @@ export async function GET(req: NextApiRequest) {
 
   const user = (await userResponse.json()) as User;
 
-  // Save the user to the session cookie
+  // NOTE:
+  // In production, you should save the access_token to your database and read it from there.
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
   session.user = user;
+  session.accessToken = data.access_token;
   await session.save();
 
   return redirect("/");

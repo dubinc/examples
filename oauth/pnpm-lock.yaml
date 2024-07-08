@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  dub:
+    specifier: ^0.31.1
+    version: 0.31.1(zod@3.23.8)
   iron-session:
     specifier: ^8.0.2
     version: 8.0.2
@@ -837,6 +840,14 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dub@0.31.1(zod@3.23.8):
+    resolution: {integrity: sha512-jaQ/0ayv3i8jd6aIKledOClvF6K3yWpcDDEfOaBO3lAdPNNx8J4Q3Jl6R2xGN8YIH63wIp7yVxnm0ett356Q4g==}
+    peerDependencies:
+      zod: '>= 3'
+    dependencies:
+      zod: 3.23.8
+    dev: false
 
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -2924,3 +2935,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+    dev: false

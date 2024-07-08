@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dub": "^0.31.1",
     "iron-session": "^8.0.2",
     "next": "14.2.4",
     "react": "^18",
