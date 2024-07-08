@@ -3,73 +3,61 @@ class LinksController < ApplicationController
 
   before_action :initialize_dub
 
-  def create_link
-    begin
-      req = ::OpenApiSDK::Operations::CreateLinkRequest.new(
-        request_body: ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
-          url: 'https://google.com'
-        )
-      )
-      res = @dub.links.create(req)
-    rescue StandardError => e
-      render plain: e.message and return
-    end
+  # Just for the sake of the example, we are disabling CSRF protection 
+  # DO NOT DO THIS IN A REAL APPLICATION
+  protect_from_forgery with: :null_session
 
-    if res.link_schema
-      puts res.raw_response.body
-      render plain: res.link_schema.short_link
-    end
+  # create a new link on Dub
+  def create
+    req = ::OpenApiSDK::Operations::CreateLinkRequest.new(
+      request_body: ::OpenApiSDK::Operations::CreateLinkRequestBody.new(
+        url: 'https://google.com'
+      )
+    )
+
+    res = @dub.links.create(req)
+
+    render json: res.raw_response.body
   end
 
-  def upsert_link
-    begin
-      res = @dub.links.upsert(
-        request: {
-          url: 'https://google.com'
-        }
-      )
-    rescue StandardError => e
-      render plain: e.message and return
-    end
+  # upsert a link (Create if it doesn't exist, Update if it does)
+  def upsert
+    req = ::OpenApiSDK::Operations::UpsertLinkRequest.new(
+      request_body: ::OpenApiSDK::Operations::UpsertLinkRequestBody.new(
+        url: "https://google.com",
+      ),
+    )
 
-    if res.link_schema
-      render plain: res.link_schema.short_link
-    end
+    res = @dub.links.upsert(req)
+
+    render json: res.raw_response.body
   end
 
-  def update_link
-    begin
-      res = @dub.links.update(
-        link_id: 'clx1gvi9o0005hf5momm6f7hj',
-        request_body: {
-          url: 'https://google.uk'
-        }
+  # update a link on Dub
+  def update
+    req = ::OpenApiSDK::Operations::UpdateLinkRequest.new(
+      link_id: 'clx1gvi9o0005hf5momm6f7hj',
+      request_body: ::OpenApiSDK::Operations::UpdateLinkRequestBody.new(
+        url: 'https://google.uk'
       )
-    rescue StandardError => e
-      render plain: e.message and return
-    end
+    )
 
-    if res.link_schema
-      render plain: res.link_schema.short_link
-    end
+    res = @dub.links.update(req)
+
+    render json: res.raw_response.body
   end
 
+  # retrieve analytics for a link
   def analytics
-    begin
-      res = @dub.analytics.retrieve(
-        request: {
-          link_id: 'clx1gvi9o0005hf5momm6f7hj',
-          interval: '7d',
-          group_by: 'timeseries'
-        }
-      )
-    rescue StandardError => e
-      render plain: e.message and return
-    end
+    req = ::OpenApiSDK::Operations::RetrieveAnalyticsRequest.new(
+      link_id: "clx1gvi9o0005hf5momm6f7hj",
+      interval: ::OpenApiSDK::Operations::Interval::SEVEND,
+      group_by: ::OpenApiSDK::Operations::GroupBy::TIMESERIES
+    )
+  
+    res = @dub.analytics.retrieve(req)
 
-    if res.one_of
-      render plain: res.one_of
-    end
+    render json: res.raw_response.body
   end
 
   private

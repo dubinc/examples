@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  get 'create_link', to: 'links#create_link'
-  get 'upsert_link', to: 'links#upsert_link'
-  get 'update_link', to: 'links#update_link'
+  post 'links', to: 'links#create'
+  put 'links', to: 'links#upsert'
+  patch 'links', to: 'links#update'
   get 'analytics', to: 'links#analytics'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
