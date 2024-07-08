@@ -4,14 +4,13 @@ require "dub"
 set :port, 3000
 set :bind, "0.0.0.0"
 
-before do
-  $dub = ::OpenApiSDK::Dub.new
-  $dub.config_security(
-    ::OpenApiSDK::Shared::Security.new(
-      token: ENV['DUB_API_KEY'],
-    )
+# Initialize the Dub SDK Client
+dub = ::OpenApiSDK::Dub.new
+dub.config_security(
+  ::OpenApiSDK::Shared::Security.new(
+    token: ENV['DUB_API_KEY'],
   )
-end
+)
 
 # Create a link on Dub
 post "/links" do
@@ -21,7 +20,7 @@ post "/links" do
     )
   )
 
-  res = $dub.links.create(req)
+  res = dub.links.create(req)
 
   content_type :json
   res.raw_response.body
@@ -35,7 +34,7 @@ put "/links" do
     ),
   )
 
-  res = $dub.links.upsert(req)
+  res = dub.links.upsert(req)
 
   content_type :json
   res.raw_response.body
@@ -50,7 +49,7 @@ patch "/links" do
     )
   )
 
-  res = $dub.links.update(req)
+  res = dub.links.update(req)
 
   content_type :json
   res.raw_response.body
@@ -64,7 +63,7 @@ get "/analytics" do
     group_by: ::OpenApiSDK::Operations::GroupBy::TIMESERIES
   )
 
-  res = $dub.analytics.retrieve(req)
+  res = dub.analytics.retrieve(req)
 
   content_type :json
   res.raw_response.body
