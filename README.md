@@ -20,6 +20,10 @@ Our collection of examples showcases the power of Dub, an open-source link manag
 - [Python](/python)
 - [Flask](/python/flask)
 - [Django](/python/django)
+- [Ruby](/ruby)
+- [Rails](/ruby/rails/example)
+- [Sinatra](/ruby/sinatra)
+
 
 ## Read the Docs
 
