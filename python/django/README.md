@@ -29,9 +29,11 @@ export DUB_API_KEY="p4z..."
 python manage.py runserver
 ```
 
-5. Open the URL in your browser [http://localhost:8000/create-link](http://localhost:8000/create-link)
+5. Create a new link:
 
-This will create a new link in your Dub workspace and display the API response in the browser.
+```shell
+curl -X POST http://127.0.0.1:8000/create-link
+```
 
 ## Resources
 
