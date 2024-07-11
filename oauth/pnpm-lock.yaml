@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@badgateway/oauth2-client':
+    specifier: ^2.3.0
+    version: 2.3.0
   dub:
     specifier: ^0.31.1
     version: 0.31.1(zod@3.23.8)
@@ -53,6 +56,11 @@ packages:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
     dev: true
+
+  /@badgateway/oauth2-client@2.3.0:
+    resolution: {integrity: sha512-nLbACuhaKIo9AjaE/HK1zvRU0yzsSOX94yarEyKLq1FNzf9b74YReZrKVfF7EkQfNli+TpL11750s01/oyEf2w==}
+    engines: {node: '>= 14'}
+    dev: false
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.57.0):
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
