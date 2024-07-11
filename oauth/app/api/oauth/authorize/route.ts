@@ -1,13 +1,12 @@
 import { redirect } from "next/navigation";
+import { oauth2Client } from "@/lib/oauth2Client";
 
-export function GET() {
-  const searchParams = new URLSearchParams({
-    client_id: `${process.env.DUB_CLIENT_ID}`,
-    redirect_uri: "http://localhost:3000/api/oauth/callback",
-    response_type: "code",
+export async function GET() {
+  const url = await oauth2Client.authorizationCode.getAuthorizeUri({
+    redirectUri: "http://localhost:3000/api/oauth/callback",
+    scope: ["links.write"],
+    state: "some-random-state",
   });
 
-  return redirect(
-    `${process.env.DUB_AUTHORIZATION_URL}?${searchParams.toString()}`
-  );
+  return redirect(url);
 }
