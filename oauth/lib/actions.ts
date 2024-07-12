@@ -22,9 +22,4 @@ export const loggedOut = async () => {
 
   session?.destroy();
   revalidatePath("/");
-};
-
-export interface Response {
-  message?: string;
-  shortLink?: string;
 }
