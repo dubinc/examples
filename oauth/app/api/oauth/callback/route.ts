@@ -5,6 +5,7 @@ import { NextApiRequest } from "next";
 import {} from "iron-session";
 import { SessionData, User, sessionOptions } from "@/lib/session";
 import { oauth2Client } from "@/lib/oauth2Client";
+import { DUB_API_URL } from "@/lib/dub";
 
 export async function GET(req: NextApiRequest) {
   const { searchParams } = new URL(req.url!);
@@ -24,14 +25,11 @@ export async function GET(req: NextApiRequest) {
   console.log("token", { accessToken, refreshToken, expiresAt });
 
   // Fetch the user's profile using the access token from the previous step
-  const userResponse = await fetch(
-    `${process.env.DUB_API_URL}/oauth/userinfo`,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-  );
+  const userResponse = await fetch(`${DUB_API_URL}/oauth/userinfo`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
 
   const user = (await userResponse.json()) as User;
 

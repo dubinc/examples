@@ -1,7 +1,5 @@
 import { OAuth2Client } from "@badgateway/oauth2-client";
-
-const DUB_URL = process.env.DUB_URL || "https://app.dub.co";
-const DUB_API_URL = process.env.DUB_API_URL || "https://api.dub.co";
+import { DUB_API_URL, DUB_URL } from "./dub";
 
 export const oauth2Client = new OAuth2Client({
   clientId: `${process.env.DUB_CLIENT_ID}`,

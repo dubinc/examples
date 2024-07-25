@@ -37,17 +37,11 @@ export const CreateLink = () => {
   };
 
   return (
-    <div className="p-4 my-2 border rounded-lg sm:p-6 lg:p-8 bg-gray-50 text-black">
-      <h3 className="mb-3 text-xl font-medium">Create a short link on Dub</h3>
-      <p className="mb-5 text-sm font-medium">
-        This form will create a short link on Dub using the `access_token`
-        stored in the session cookie.
-      </p>
-
+    <div className="border rounded bg-gray-50 px-10 py-10 flex w-full mx-auto flex-col gap-4">
       <form onSubmit={createShortLink}>
-        <div className="flex items-end gap-2 flex-col">
+        <div className="flex items-center space-x-2">
           <input
-            className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5"
+            className="bg-white border border-gray-300 text-sm rounded flex-grow p-3"
             name="url"
             type="url"
             placeholder="URL"
@@ -55,7 +49,7 @@ export const CreateLink = () => {
             defaultValue="https://www.google.com/"
           />
           <button
-            className="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg cursor-pointer"
+            className="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded cursor-pointer"
             disabled={loading}
             type="submit"
           >
@@ -64,22 +58,25 @@ export const CreateLink = () => {
         </div>
       </form>
 
-      <div>
-        <p>
-          {shortLink && (
-            <a
-              className="text-blue-500 underline"
-              href={shortLink}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {shortLink}
-            </a>
-          )}
-        </p>
+      <p className="text-sm text-gray-600">
+        This form will create a short link on Dub using the `access_token`
+        stored in the session cookie.
+      </p>
 
-        {error && <p className="text-red-500">{error}</p>}
-      </div>
+      {shortLink && (
+        <p className="text-sm text-gray-600 text-left">
+          <a
+            className="text-blue-500 underline text-base tracking-wide"
+            href={shortLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {shortLink}
+          </a>
+        </p>
+      )}
+
+      {error && <p className="text-red-500">{error}</p>}
     </div>
   );
 };

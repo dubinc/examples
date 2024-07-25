@@ -3,7 +3,6 @@ import type { SessionOptions } from "iron-session";
 export interface User {
   id: string;
   name: string;
-  email: string;
 }
 
 export interface SessionData {

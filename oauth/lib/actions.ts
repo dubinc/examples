@@ -16,10 +16,10 @@ export const getSession = async () => {
   return session;
 };
 
-// Logged out
-export const loggedOut = async () => {
+// Sign out the current user
+export const signOut = async () => {
   const session = await getSession();
 
   session?.destroy();
   revalidatePath("/");
-}
+};
