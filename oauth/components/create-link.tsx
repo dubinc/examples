@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@dub/ui";
 import { useState } from "react";
 
 export const CreateLink = () => {
@@ -41,20 +42,21 @@ export const CreateLink = () => {
       <form onSubmit={createShortLink}>
         <div className="flex items-center space-x-2">
           <input
-            className="bg-white border border-gray-300 text-sm rounded flex-grow p-3"
+            className="bg-white border border-gray-300 text-sm rounded flex-grow p-2"
             name="url"
             type="url"
             placeholder="URL"
             required
             defaultValue="https://www.google.com/"
           />
-          <button
-            className="px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded cursor-pointer"
+          <Button
+            variant="primary"
+            text={loading ? "Creating..." : "Create Link"}
             disabled={loading}
+            loading={loading}
             type="submit"
-          >
-            {loading ? "Creating..." : "Create Link"}
-          </button>
+            className="w-30 h-10 rounded"
+          />
         </div>
       </form>
 

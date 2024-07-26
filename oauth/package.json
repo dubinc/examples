@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@badgateway/oauth2-client": "^2.3.0",
+    "@dub/ui": "^0.1.39",
     "dub": "^0.34.2",
     "iron-session": "^8.0.2",
     "next": "14.2.4",

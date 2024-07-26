@@ -1,6 +1,6 @@
 import { CreateLink } from "@/components/create-link";
+import SignInWithDub from "@/components/signin-with-dub";
 import { getSession } from "@/lib/actions";
-import Link from "next/link";
 
 export default async function Home() {
   const session = await getSession();
@@ -27,13 +27,7 @@ export default async function Home() {
               <CreateLink />
             </div>
           ) : (
-            <Link
-              href="/api/oauth/authorize"
-              className="bg-black text-white py-2 px-4 rounded"
-              prefetch={false}
-            >
-              Sign in with Dub
-            </Link>
+            <SignInWithDub />
           )}
         </div>
       </section>

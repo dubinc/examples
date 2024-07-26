@@ -3,6 +3,8 @@
 import { signOut } from "@/lib/actions";
 import { User } from "@/lib/session";
 import Link from "next/link";
+import { Button } from "@dub/ui";
+import SignInWithDub from "./signin-with-dub";
 
 export const NavBar = ({ user }: { user?: User }) => {
   return (
@@ -15,21 +17,15 @@ export const NavBar = ({ user }: { user?: User }) => {
         {user ? (
           <div className="flex items-center gap-4">
             <div className="text-black font-bold">{user.name}</div>
-            <button
-              className="bg-black text-white py-2 px-4 rounded"
+            <Button
+              variant="outline"
+              text="Sign out"
+              className="w-30 h-10 rounded"
               onClick={() => signOut()}
-            >
-              Sign out
-            </button>
+            />
           </div>
         ) : (
-          <Link
-            className="bg-black text-white py-2 px-4 rounded"
-            href="/api/oauth/authorize"
-            prefetch={false}
-          >
-            Sign in with Dub
-          </Link>
+          <SignInWithDub />
         )}
       </div>
     </div>
