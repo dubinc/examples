@@ -6,40 +6,61 @@ import {} from "iron-session";
 import { SessionData, User, sessionOptions } from "@/lib/session";
 import { oauth2Client } from "@/lib/oauth2Client";
 import { DUB_API_URL } from "@/lib/dub";
+import { NextResponse } from "next/server";
+import { OAuth2Error } from "@badgateway/oauth2-client";
 
 export async function GET(req: NextApiRequest) {
-  const { searchParams } = new URL(req.url!);
-  const code = searchParams.get("code");
+  try {
+    const { searchParams } = new URL(req.url!);
+    const code = searchParams.get("code");
 
-  if (!code) {
-    return redirect("/?error=code_not_found");
-  }
+    if (!code) {
+      throw new Error(
+        "Authorization code not found. Please start the login process again."
+      );
+    }
 
-  // Exchange the code for an access token
-  const { accessToken, refreshToken, expiresAt } =
-    await oauth2Client.authorizationCode.getToken({
-      code,
-      redirectUri: "http://localhost:3000/api/oauth/callback",
+    // Exchange the code for an access token
+    const { accessToken, refreshToken, expiresAt } =
+      await oauth2Client.authorizationCode.getToken({
+        code,
+        redirectUri: "http://localhost:3000/api/oauth/callback",
+      });
+
+    // Fetch the user's profile using the access token from the previous step
+    const response = await fetch(`${DUB_API_URL}/oauth/userinfo`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
     });
 
-  console.log("token", { accessToken, refreshToken, expiresAt });
+    const data = await response.json();
 
-  // Fetch the user's profile using the access token from the previous step
-  const userResponse = await fetch(`${DUB_API_URL}/oauth/userinfo`, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+    if (!response.ok) {
+      throw new Error(data.error.message);
+    }
 
-  const user = (await userResponse.json()) as User;
+    console.log({ accessToken, refreshToken, expiresAt, data });
 
-  console.log("profile", user);
+    // In production, you should save the access_token to your database and read it from there.
+    const session = await getIronSession<SessionData>(
+      cookies(),
+      sessionOptions
+    );
 
-  // In production, you should save the access_token to your database and read it from there.
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
-  session.user = user;
-  session.accessToken = accessToken;
-  await session.save();
+    session.user = data;
+    session.accessToken = accessToken;
+    await session.save();
+  } catch (error: any) {
+    let message = error.message || "An error occurred";
+
+    if (error instanceof OAuth2Error) {
+      // @ts-ignore
+      message = error.oauth2Code.message;
+    }
+
+    return NextResponse.json({ error: { message } }, { status: 400 });
+  }
 
   return redirect("/");
 }

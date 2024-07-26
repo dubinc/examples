@@ -76,7 +76,7 @@ export const CreateLink = () => {
         </p>
       )}
 
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-sm text-red-500 text-left">{error}</p>}
     </div>
   );
 };

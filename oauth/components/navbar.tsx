@@ -5,8 +5,6 @@ import { User } from "@/lib/session";
 import Link from "next/link";
 
 export const NavBar = ({ user }: { user?: User }) => {
-  console.log("NavBar", user);
-
   return (
     <div className="fixed top-0 flex w-full justify-center border-b border-gray-200 bg-white/50 backdrop-blur-xl z-30 transition-all">
       <div className="mx-5 flex h-16 w-full max-w-screen-md items-center justify-between">
