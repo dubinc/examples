@@ -47,7 +47,7 @@ export const CreateLink = () => {
             type="url"
             placeholder="URL"
             required
-            defaultValue="https://www.google.com/"
+            defaultValue="https://www.google.com"
           />
           <Button
             variant="primary"
