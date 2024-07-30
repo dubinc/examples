@@ -52,10 +52,9 @@ export const CreateLink = () => {
           <Button
             variant="primary"
             text={loading ? "Creating..." : "Create Link"}
-            disabled={loading}
             loading={loading}
             type="submit"
-            className="w-30 h-10 rounded"
+            className="w-fit"
           />
         </div>
       </form>
