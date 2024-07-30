@@ -6,7 +6,7 @@ export default async function Home() {
   const session = await getSession();
 
   return (
-    <main className="container mx-auto max-w-4xl py-40">
+    <main className="container mx-auto max-w-4xl">
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="px-4 md:px-6 flex flex-col items-center text-center space-y-6">
           <div className="max-w-4xl space-y-4">
@@ -20,7 +20,7 @@ export default async function Home() {
           </div>
 
           {session?.user ? (
-            <div className="space-y-20">
+            <div className="grid gap-y-10">
               <div className="text-gray-800 font-medium">
                 Logged in as {session.user.name}
               </div>

@@ -22,10 +22,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NavBar user={session?.user} />
-        <div className="w-full">
-          <div className="mx-auto min-h-screen w-full max-w-screen-md">
-            {children}
-          </div>
+        <div className="mx-auto min-h-screen flex flex-col items-center justify-center w-full max-w-screen-md">
+          {children}
         </div>
       </body>
     </html>
