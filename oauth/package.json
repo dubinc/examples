@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@badgateway/oauth2-client": "^2.3.0",
+    "@dub/tailwind-config": "^0.0.4",
     "@dub/ui": "^0.1.39",
     "dub": "^0.34.2",
     "iron-session": "^8.0.2",
