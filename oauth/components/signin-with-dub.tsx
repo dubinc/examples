@@ -12,7 +12,7 @@ export default function SignInWithDub() {
     <Button
       variant="primary"
       text="Sign in with Dub"
-      className="w-30 h-10 rounded"
+      className="w-fit"
       loading={isLoading}
       onClick={() => {
         setIsLoading(true);
