@@ -1,6 +1,8 @@
 # OAuth Integration Example
 
-This is a simple example that demonstrates how to authenticate users with Dub OAuth 2.0 flow.
+Dub supports OAuth 2.0 authentication, which is *recommended* if you build integrations extending Dub’s functionality.
+
+This example demonstrates how to authenticate users with Dub OAuth 2.0 flow.
 
 ## Getting Started
 
@@ -15,6 +17,8 @@ Follow the steps below to get started:
 
 ## Learn More
 
-To learn more about Dub Integration, take a look at the following resources:
+To learn more about Dub, take a look at the following resources:
 
 - [Integrate with Dub](https://dub.co/docs/integrations/quickstart)
+- [API Reference](https://dub.co/docs/api-reference/introduction)
+- [SDKs](https://dub.co/docs/sdks/overview)
