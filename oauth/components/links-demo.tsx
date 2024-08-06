@@ -12,6 +12,7 @@ import LinkCard from "./link-card";
 import { cn } from "@dub/utils";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { LinkPlaceholderCard } from "./link-placeholder-card";
 
 type ShortLink = {
   id: string;
@@ -96,36 +97,34 @@ export const LinksDemo = () => {
         <p className="text-center text-sm text-red-600 text-left">{error}</p>
       )}
 
-      {shortLinks.length > 0 ? (
-        <motion.ul
-          key={shortLinks.length}
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.1,
-              },
+      <motion.ul
+        key={shortLinks.length}
+        initial="hidden"
+        animate="show"
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.1,
             },
-          }}
-          className="text-sm text-gray-600 text-left flex flex-col items-center gap-2"
-        >
-          {shortLinks.map(({ id, key, domain, url }) => (
-            <LinkCard
-              key={id}
-              domain={domain}
-              _key={key}
-              url={url}
-              onDelete={() => deleteShortLink(id)}
-            />
+          },
+        }}
+        className="text-sm text-gray-600 text-left flex flex-col items-center gap-2"
+      >
+        {shortLinks.map(({ id, key, domain, url }) => (
+          <LinkCard
+            key={id}
+            domain={domain}
+            _key={key}
+            url={url}
+            onDelete={() => deleteShortLink(id)}
+          />
+        ))}
+        {shortLinks.length < 3 &&
+          [...Array(3 - shortLinks.length)].map((_, idx) => (
+            <LinkPlaceholderCard key={idx} />
           ))}
-        </motion.ul>
-      ) : (
-        <p className="text-sm text-gray-400">
-          Use the field above to create a short link!
-        </p>
-      )}
+      </motion.ul>
     </div>
   );
 };
