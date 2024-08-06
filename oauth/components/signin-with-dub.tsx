@@ -11,9 +11,8 @@ export default function SignInWithDub() {
   return (
     <Button
       variant="primary"
-      icon={<Logo className="w-4 h-4 text-white" />}
       text="Sign in with Dub"
-      className="w-fit"
+      className="w-fit rounded-full"
       loading={isLoading}
       onClick={() => {
         setIsLoading(true);
