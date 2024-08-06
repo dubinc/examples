@@ -10,7 +10,7 @@ export default async function Home() {
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="px-4 md:px-6 flex flex-col items-center text-center space-y-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-semibold text-black max-w-xl mx-auto">
+            <h1 className="font-display text-5xl font-bold text-black max-w-xl mx-auto">
               Kickstart your Integration with Dub
             </h1>
             <p className="mt-6 text-lg text-gray-500">
