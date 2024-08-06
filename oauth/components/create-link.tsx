@@ -1,17 +1,21 @@
 "use client";
 
-import { Button } from "@dub/ui";
-import { useState } from "react";
+import { ArrowTurnRight2, Button, Hyperlink, LoadingSpinner } from "@dub/ui";
+import { ChangeEvent, HTMLProps, useState } from "react";
+import LinkCard from "./link-card";
+import { cn } from "@dub/utils";
 
 export const CreateLink = () => {
+  const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [shortLink, setShortLink] = useState("");
+  const [shortLinks, setShortLinks] = useState<
+    { key: string; domain: string; url: string }[]
+  >([]);
 
   const createShortLink = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
-    setShortLink("");
     setLoading(true);
 
     const form = e.currentTarget;
@@ -34,46 +38,36 @@ export const CreateLink = () => {
       return;
     }
 
-    setShortLink(data.shortLink);
+    setInputValue("");
+    setShortLinks([data, ...shortLinks]);
   };
 
   return (
-    <div className="border rounded bg-gray-50 px-10 py-10 flex w-full mx-auto flex-col gap-4">
-      <form onSubmit={createShortLink}>
-        <div className="flex items-center space-x-2">
-          <input
-            className="bg-white border border-gray-300 text-sm rounded flex-grow p-2"
-            name="url"
-            type="url"
-            placeholder="URL"
-            required
-            defaultValue="https://www.google.com"
-          />
-          <Button
-            variant="primary"
-            text={loading ? "Creating..." : "Create Link"}
-            loading={loading}
-            type="submit"
-            className="w-fit"
-          />
-        </div>
+    <div className="px-3 sm:px-10 py-4 flex w-full mx-auto flex-col gap-6">
+      <form onSubmit={createShortLink} className="flex flex-col items-center">
+        <UrlInput
+          name="url"
+          type="url"
+          placeholder="https://app.dub.co/register"
+          required
+          autoFocus
+          loading={loading}
+          value={inputValue}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setInputValue(e.target.value)
+          }
+        />
       </form>
 
-      <p className="text-sm text-gray-600">
-        This form will create a short link on Dub using the `access_token`
-        stored in the session cookie.
-      </p>
-
-      {shortLink && (
-        <p className="text-sm text-gray-600 text-left">
-          <a
-            className="text-blue-500 underline text-base tracking-wide"
-            href={shortLink}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {shortLink}
-          </a>
+      {shortLinks.length > 0 ? (
+        <ul className="text-sm text-gray-600 text-left flex flex-col items-center gap-2">
+          {shortLinks.map(({ key, domain, url }) => (
+            <LinkCard key={key} domain={domain} _key={key} url={url} />
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-gray-400">
+          Use the field above to create a short link!
         </p>
       )}
 
@@ -81,3 +75,34 @@ export const CreateLink = () => {
     </div>
   );
 };
+
+function UrlInput({
+  loading,
+  ...rest
+}: { loading: boolean } & HTMLProps<HTMLInputElement>) {
+  return (
+    <div className="w-full max-w-md relative flex items-center">
+      <Hyperlink className="absolute left-2.5 size-5 top-1/2 -translate-y-1/2 text-gray-400" />
+      <input
+        className="peer block w-full rounded-lg outline-none border border-gray-200 bg-white p-2 pl-10 pr-12 shadow-lg transition-all placeholder:text-gray-400 focus:border-gray-800 focus:outline-none focus:ring-gray-800 sm:text-sm"
+        {...rest}
+      />
+      <button
+        type="submit"
+        disabled={loading}
+        className={cn(
+          "absolute flex right-0 top-1/2 -translate-y-1/2 size-10 items-center justify-center rounded font-sans text-sm font-medium text-gray-400",
+          loading
+            ? "cursor-not-allowed"
+            : "hover:text-gray-700 peer-focus:text-gray-700"
+        )}
+      >
+        {loading ? (
+          <LoadingSpinner className="h-4 w-4" />
+        ) : (
+          <ArrowTurnRight2 className="h-4 w-4 -scale-x-100" />
+        )}
+      </button>
+    </div>
+  );
+}

@@ -20,6 +20,14 @@ const config: Pick<Config, "presets"> = {
             "gradient-conic":
               "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
           },
+          keyframes: {
+            "scale-in": {
+              from: { opacity: "0", transform: "scale(0.9)" },
+            },
+          },
+          animation: {
+            "scale-in": "scale-in 0.5s ease-in-out",
+          },
         },
       },
       plugins: [require("@tailwindcss/typography")],

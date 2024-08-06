@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@dub/ui";
+import { Button, Logo } from "@dub/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -11,6 +11,7 @@ export default function SignInWithDub() {
   return (
     <Button
       variant="primary"
+      icon={<Logo className="w-4 h-4 text-white" />}
       text="Sign in with Dub"
       className="w-fit"
       loading={isLoading}

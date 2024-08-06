@@ -20,9 +20,9 @@ export async function POST(req: Request) {
 
     const dub = dubClient(accessToken);
 
-    const { shortLink } = await dub.links.create({ url });
+    const { key, domain } = await dub.links.create({ url });
 
-    return NextResponse.json({ shortLink });
+    return NextResponse.json({ key, domain, url });
   } catch (error: any) {
     return NextResponse.json({ error: error.error.message }, { status: 400 });
   }
