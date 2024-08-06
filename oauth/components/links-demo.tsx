@@ -4,13 +4,15 @@ import { ArrowTurnRight2, Button, Hyperlink, LoadingSpinner } from "@dub/ui";
 import { ChangeEvent, HTMLProps, useState } from "react";
 import LinkCard from "./link-card";
 import { cn } from "@dub/utils";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
 
-export const CreateLink = () => {
+export const LinksDemo = () => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [shortLinks, setShortLinks] = useState<
-    { key: string; domain: string; url: string }[]
+    { id: string; key: string; domain: string; url: string }[]
   >([]);
 
   const createShortLink = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,6 +44,23 @@ export const CreateLink = () => {
     setShortLinks([data, ...shortLinks]);
   };
 
+  const deleteShortLink = async (id: string) => {
+    const originalShorLinks = shortLinks.slice();
+    setShortLinks((l) => l.filter((link) => link.id !== id));
+
+    const response = await fetch(`/api/links/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      toast.error("Failed to delete short link.");
+      setShortLinks(originalShorLinks);
+      return;
+    }
+
+    toast.success("Short link deleted.");
+  };
+
   return (
     <div className="px-3 sm:px-10 py-4 flex w-full mx-auto flex-col gap-6">
       <form onSubmit={createShortLink} className="flex flex-col items-center">
@@ -59,19 +78,40 @@ export const CreateLink = () => {
         />
       </form>
 
+      {error && (
+        <p className="text-center text-sm text-red-600 text-left">{error}</p>
+      )}
+
       {shortLinks.length > 0 ? (
-        <ul className="text-sm text-gray-600 text-left flex flex-col items-center gap-2">
-          {shortLinks.map(({ key, domain, url }) => (
-            <LinkCard key={key} domain={domain} _key={key} url={url} />
+        <motion.ul
+          key={shortLinks.length}
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          className="text-sm text-gray-600 text-left flex flex-col items-center gap-2"
+        >
+          {shortLinks.map(({ id, key, domain, url }) => (
+            <LinkCard
+              key={id}
+              domain={domain}
+              _key={key}
+              url={url}
+              onDelete={() => deleteShortLink(id)}
+            />
           ))}
-        </ul>
+        </motion.ul>
       ) : (
         <p className="text-sm text-gray-400">
           Use the field above to create a short link!
         </p>
       )}
-
-      {error && <p className="text-sm text-red-500 text-left">{error}</p>}
     </div>
   );
 };

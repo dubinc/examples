@@ -1,4 +1,4 @@
-import { CreateLink } from "@/components/create-link";
+import { LinksDemo } from "@/components/links-demo";
 import SignInWithDub from "@/components/signin-with-dub";
 import { getSession } from "@/lib/actions";
 
@@ -19,7 +19,7 @@ export default async function Home() {
             </p>
           </div>
 
-          {session?.user ? <CreateLink /> : <SignInWithDub />}
+          {session?.user ? <LinksDemo /> : <SignInWithDub />}
         </div>
       </section>
     </main>

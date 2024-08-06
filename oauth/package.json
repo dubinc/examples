@@ -14,11 +14,13 @@
     "@dub/ui": "^0.1.39",
     "@dub/utils": "^0.0.63",
     "dub": "^0.34.2",
+    "framer-motion": "^11.3.21",
     "iron-session": "^8.0.2",
     "lucide-react": "^0.424.0",
     "next": "14.2.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sonner": "^1.5.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

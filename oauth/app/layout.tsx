@@ -5,6 +5,7 @@ import "./globals.css";
 import { NavBar } from "@/components/navbar";
 import { getSession } from "@/lib/actions";
 import { Background } from "@dub/ui";
+import { Toaster } from "sonner";
 
 export const satoshi = localFont({
   src: "./Satoshi-Variable.woff2",
@@ -30,6 +31,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${satoshi.variable}`}>
+        <Toaster
+          closeButton
+          toastOptions={{
+            // @ts-ignore
+            classNames: {
+              closeButton: "bg-white",
+            },
+          }}
+        />
         <Background />
         <div className="relative z-10">
           <NavBar user={session?.user} />
