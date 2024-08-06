@@ -43,7 +43,7 @@ export default async function RootLayout({
         <Background />
         <div className="relative z-10">
           <NavBar user={session?.user} />
-          <div className="mx-auto min-h-screen flex flex-col items-center justify-center w-full max-w-screen-md">
+          <div className="mx-auto flex flex-col items-center w-full max-w-screen-md">
             {children}
           </div>
         </div>

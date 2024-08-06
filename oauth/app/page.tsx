@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main className="container mx-auto max-w-4xl">
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="mt-12 md:mt-16 w-full py-12">
         <div className="px-4 md:px-6 flex flex-col items-center text-center space-y-6">
           <div className="max-w-4xl">
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.15] text-black sm:text-6xl sm:leading-[1.15]">
@@ -26,12 +26,9 @@ export default async function Home() {
 
           {session?.user ? (
             // Prevents SSR, which would cause hydration errors due to local storage requirements
-            // TODO: Remove the outer div once the ClientOnly component accepts className
-            <div className="w-full [&>div]:w-full">
-              <ClientOnly>
-                <LinksDemo />
-              </ClientOnly>
-            </div>
+            <ClientOnly className="w-full">
+              <LinksDemo />
+            </ClientOnly>
           ) : (
             <SignInWithDub />
           )}
