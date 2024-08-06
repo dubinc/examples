@@ -1,19 +1,33 @@
 "use client";
 
-import { ArrowTurnRight2, Button, Hyperlink, LoadingSpinner } from "@dub/ui";
+import {
+  ArrowTurnRight2,
+  Button,
+  Hyperlink,
+  LoadingSpinner,
+  useLocalStorage,
+} from "@dub/ui";
 import { ChangeEvent, HTMLProps, useState } from "react";
 import LinkCard from "./link-card";
 import { cn } from "@dub/utils";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
+type ShortLink = {
+  id: string;
+  key: string;
+  domain: string;
+  url: string;
+};
+
 export const LinksDemo = () => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [shortLinks, setShortLinks] = useState<
-    { id: string; key: string; domain: string; url: string }[]
-  >([]);
+  const [shortLinks, setShortLinks] = useLocalStorage<ShortLink[]>(
+    "short-links",
+    []
+  );
 
   const createShortLink = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,7 +60,7 @@ export const LinksDemo = () => {
 
   const deleteShortLink = async (id: string) => {
     const originalShorLinks = shortLinks.slice();
-    setShortLinks((l) => l.filter((link) => link.id !== id));
+    setShortLinks(shortLinks.filter((link) => link.id !== id));
 
     const response = await fetch(`/api/links/${id}`, {
       method: "DELETE",

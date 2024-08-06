@@ -1,6 +1,7 @@
 import { LinksDemo } from "@/components/links-demo";
 import SignInWithDub from "@/components/signin-with-dub";
 import { getSession } from "@/lib/actions";
+import { ClientOnly } from "@dub/ui";
 
 export default async function Home() {
   const session = await getSession();
@@ -23,7 +24,17 @@ export default async function Home() {
             </p>
           </div>
 
-          {session?.user ? <LinksDemo /> : <SignInWithDub />}
+          {session?.user ? (
+            // Prevents SSR, which would cause hydration errors due to local storage requirements
+            // TODO: Remove the outer div once the ClientOnly component accepts className
+            <div className="w-full [&>div]:w-full">
+              <ClientOnly>
+                <LinksDemo />
+              </ClientOnly>
+            </div>
+          ) : (
+            <SignInWithDub />
+          )}
         </div>
       </section>
     </main>

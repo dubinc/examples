@@ -15,7 +15,7 @@ importers:
         specifier: ^0.0.4
         version: 0.0.4(tailwindcss@3.4.7)
       '@dub/ui':
-        specifier: ^0.1.39
+        specifier: ^0.1.41
         version: 0.1.41(@types/react-dom@18.3.0)(@types/react@18.3.3)(next@14.2.4)(react-dom@18.3.1)(react@18.3.1)
       '@dub/utils':
         specifier: ^0.0.63
