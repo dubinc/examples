@@ -51,7 +51,7 @@ export const NavBar = ({ user }: { user?: User }) => {
                 </div>
               }
             >
-              <button className="min-w-4 whitespace-nowrap flex items-center h-12 px-2 gap-2 sm:gap-3 font-medium text-sm rounded-lg hover:bg-gray-100 transition-colors">
+              <button className="active:bg-gray-200 min-w-4 whitespace-nowrap flex items-center h-12 px-2 gap-2 sm:gap-3 font-medium text-sm rounded-lg hover:bg-gray-100 transition-colors">
                 <Image
                   src={
                     user.workspace.logo ||
