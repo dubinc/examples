@@ -23,7 +23,7 @@ Our collection of examples showcases the power of Dub, an open-source link manag
 - [Ruby](/ruby)
 - [Rails](/ruby/rails/example)
 - [Sinatra](/ruby/sinatra)
-
+- [OAuth Integration](/oauth)
 
 ## Read the Docs
 
