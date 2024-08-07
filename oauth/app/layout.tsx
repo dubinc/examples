@@ -7,7 +7,7 @@ import { getSession } from "@/lib/actions";
 import { Background } from "@dub/ui";
 import { Toaster } from "sonner";
 
-export const satoshi = localFont({
+const satoshi = localFont({
   src: "./Satoshi-Variable.woff2",
   variable: "--font-satoshi",
   weight: "300 900",
