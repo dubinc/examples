@@ -13,6 +13,7 @@ import { cn } from "@dub/utils";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { LinkPlaceholderCard } from "./link-placeholder-card";
+import { CornerDownLeft, Link2 } from "lucide-react";
 
 type ShortLink = {
   id: string;
@@ -23,7 +24,6 @@ type ShortLink = {
 
 export const LinksDemo = () => {
   const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [shortLinks, setShortLinks] = useLocalStorage<ShortLink[]>(
     "short-links",
@@ -32,7 +32,6 @@ export const LinksDemo = () => {
 
   const createShortLink = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError("");
     setLoading(true);
 
     const form = e.currentTarget;
@@ -51,7 +50,7 @@ export const LinksDemo = () => {
     setLoading(false);
 
     if (!response.ok) {
-      setError(data.error);
+      toast.error(data.error);
       return;
     }
 
@@ -77,14 +76,13 @@ export const LinksDemo = () => {
   };
 
   return (
-    <div className="px-3 sm:px-10 py-4 flex w-full mx-auto flex-col gap-6">
+    <div className="px-3 sm:px-10 flex w-full mx-auto flex-col gap-2">
       <form onSubmit={createShortLink} className="flex flex-col items-center">
         <UrlInput
           name="url"
-          type="url"
+          type="string"
           placeholder="https://app.dub.co/register"
           required
-          autoFocus
           loading={loading}
           value={inputValue}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -92,10 +90,6 @@ export const LinksDemo = () => {
           }
         />
       </form>
-
-      {error && (
-        <p className="text-center text-sm text-red-600 text-left">{error}</p>
-      )}
 
       <motion.ul
         key={shortLinks.length}
@@ -120,8 +114,8 @@ export const LinksDemo = () => {
             onDelete={() => deleteShortLink(id)}
           />
         ))}
-        {shortLinks.length < 3 &&
-          [...Array(3 - shortLinks.length)].map((_, idx) => (
+        {shortLinks.length < 4 &&
+          [...Array(4 - shortLinks.length)].map((_, idx) => (
             <LinkPlaceholderCard key={idx} />
           ))}
       </motion.ul>
@@ -135,25 +129,25 @@ function UrlInput({
 }: { loading: boolean } & HTMLProps<HTMLInputElement>) {
   return (
     <div className="w-full max-w-md relative flex items-center">
-      <Hyperlink className="absolute left-2.5 size-5 top-1/2 -translate-y-1/2 text-gray-400" />
+      <Link2 className="absolute inset-y-0 left-0 my-2 ml-3 w-5 text-gray-400" />
       <input
-        className="peer block w-full rounded-lg outline-none border border-gray-200 bg-white p-2 pl-10 pr-12 shadow-lg transition-all placeholder:text-gray-400 focus:border-gray-800 focus:outline-none focus:ring-gray-800 sm:text-sm"
         {...rest}
+        className="peer block w-full rounded-lg border-2 border-gray-100 bg-white p-2 pl-10 pr-12 shadow-lg placeholder:text-gray-400 focus:border-gray-600 focus:outline-none focus:ring-gray-600 sm:text-sm"
       />
       <button
         type="submit"
         disabled={loading}
         className={cn(
-          "absolute flex right-0 top-1/2 -translate-y-1/2 size-10 items-center justify-center rounded font-sans text-sm font-medium text-gray-400",
+          "absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded font-sans text-sm font-medium text-gray-400",
           loading
-            ? "cursor-not-allowed"
-            : "hover:text-gray-700 peer-focus:text-gray-700"
+            ? "cursor-not-allowed bg-gray-100"
+            : "hover:border-gray-700 hover:text-gray-700 peer-focus:text-gray-700"
         )}
       >
         {loading ? (
           <LoadingSpinner className="h-4 w-4" />
         ) : (
-          <ArrowTurnRight2 className="h-4 w-4 -scale-x-100" />
+          <CornerDownLeft className="h-4 w-4" />
         )}
       </button>
     </div>
