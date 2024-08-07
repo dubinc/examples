@@ -1,6 +1,6 @@
 # OAuth Integration Example
 
-Dub supports OAuth 2.0 authentication, which is *recommended* if you build integrations extending Dub’s functionality.
+Dub supports OAuth 2.0 authentication, which is _recommended_ if you build integrations extending Dub’s functionality.
 
 This example demonstrates how to authenticate users with Dub OAuth 2.0 flow.
 

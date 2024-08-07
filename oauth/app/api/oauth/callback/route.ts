@@ -1,14 +1,13 @@
 import { redirect } from "next/navigation";
 import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
-import { NextApiRequest } from "next";
 import {} from "iron-session";
-import { SessionData, User, sessionOptions } from "@/lib/session";
+import { SessionData, sessionOptions } from "@/lib/session";
 import { oauth2Client } from "@/lib/oauth2Client";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { OAuth2Error } from "@badgateway/oauth2-client";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url!);
     const code = searchParams.get("code");

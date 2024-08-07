@@ -3,6 +3,12 @@ import type { SessionOptions } from "iron-session";
 export interface User {
   id: string;
   name: string;
+  image?: string;
+  workspace: {
+    slug: string;
+    name: string;
+    logo: string | null;
+  };
 }
 
 export interface SessionData {

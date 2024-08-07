@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@dub/ui";
+import { Button, Logo } from "@dub/ui";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -12,7 +12,7 @@ export default function SignInWithDub() {
     <Button
       variant="primary"
       text="Sign in with Dub"
-      className="w-fit"
+      className="w-fit rounded-full"
       loading={isLoading}
       onClick={() => {
         setIsLoading(true);
