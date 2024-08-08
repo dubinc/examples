@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
     const { accessToken, refreshToken, expiresAt } =
       await oauth2Client.authorizationCode.getToken({
         code,
-        redirectUri: "http://localhost:3000/api/oauth/callback",
+        redirectUri: `${process.env.NEXT_PUBLIC_APP_URL}/api/oauth/callback`,
       });
 
     // Fetch the user's profile using the access token from the previous step

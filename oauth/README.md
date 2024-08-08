@@ -9,7 +9,7 @@ This example demonstrates how to authenticate users with Dub OAuth 2.0 flow.
 Follow the steps below to get started:
 
 1. Create a new Integration in the [Dub](https://dub.co) under your workspace
-2. Make sure redirect URIs are set to `http://localhost:3000/api/oauth/callback`
+2. Make sure redirect URIs are set to `http://localhost:3000/api/oauth/callback` and optionally, your production URL (e.g. `https://example.com/api/oauth/callback`)
 3. Copy the `Client ID` and `Client Secret`
 4. Update the `.env` file with the `DUB_CLIENT_ID` and `DUB_CLIENT_SECRET`
 5. Run the app
