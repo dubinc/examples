@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useAction } from "next-safe-action/hooks";
 import { updateStripeConfigAction } from "@/lib/actions/update-stripe-config";
 
-export default function ConfigPageClient({ config }: { config: any }) {
+export default function LoginPageClient() {
   const updateStripeConfig = useAction(updateStripeConfigAction, {
     onError: (error) => {
       console.error(error);
@@ -16,9 +16,9 @@ export default function ConfigPageClient({ config }: { config: any }) {
   });
 
   const [data, setData] = useState({
-    STRIPE_SECRET_KEY: config.STRIPE_SECRET_KEY || "",
-    STRIPE_PUBLISHABLE_KEY: config.STRIPE_PUBLISHABLE_KEY || "",
-    STRIPE_PRICE_ID: config.STRIPE_PRICE_ID || "",
+    name: "David",
+    email: "david@example.com",
+    password: "super-secret-password",
   });
 
   return (
@@ -27,73 +27,67 @@ export default function ConfigPageClient({ config }: { config: any }) {
         className="flex flex-col gap-6"
         onSubmit={(e) => {
           e.preventDefault();
-          updateStripeConfig.execute(data);
+          // updateStripeConfig.execute(data);
         }}
       >
         <div className="col-span-full sm:col-span-3">
           <label
-            htmlFor="STRIPE_SECRET_KEY"
+            htmlFor="name"
             className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong"
           >
-            STRIPE_SECRET_KEY
+            Name
             <span className="text-red-500">*</span>
           </label>
           <TextInput
             type="text"
-            name="STRIPE_SECRET_KEY"
+            name="name"
             className="mt-2"
             required
             placeholder=""
-            onChange={(e) =>
-              setData({ ...data, STRIPE_SECRET_KEY: e.target.value })
-            }
-            value={data.STRIPE_SECRET_KEY}
+            onChange={(e) => setData({ ...data, name: e.target.value })}
+            value={data.name}
           />
         </div>
 
         <div className="col-span-full sm:col-span-3">
           <label
-            htmlFor="STRIPE_PUBLISHABLE_KEY"
+            htmlFor="email"
             className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong"
           >
-            STRIPE_PUBLISHABLE_KEY
+            Email
             <span className="text-red-500">*</span>
           </label>
           <TextInput
             type="text"
-            name="STRIPE_PUBLISHABLE_KEY"
+            name="email"
             className="mt-2"
             required
             placeholder=""
-            onChange={(e) =>
-              setData({ ...data, STRIPE_PUBLISHABLE_KEY: e.target.value })
-            }
-            value={data.STRIPE_PUBLISHABLE_KEY}
+            onChange={(e) => setData({ ...data, email: e.target.value })}
+            value={data.email}
           />
         </div>
 
         <div className="col-span-full sm:col-span-3">
           <label
-            htmlFor="STRIPE_PRICE_ID"
+            htmlFor="password"
             className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong"
           >
-            STRIPE_PRICE_ID
+            Password
             <span className="text-red-500">*</span>
           </label>
           <TextInput
-            type="text"
-            name="STRIPE_PRICE_ID"
+            type="password"
+            name="password"
             className="mt-2"
             required
             placeholder=""
-            onChange={(e) =>
-              setData({ ...data, STRIPE_PRICE_ID: e.target.value })
-            }
-            value={data.STRIPE_PRICE_ID}
+            onChange={(e) => setData({ ...data, password: e.target.value })}
+            value={data.password}
           />
         </div>
 
-        <Button variant="primary">Save Changes</Button>
+        <Button variant="primary">Signup</Button>
       </form>
     </main>
   );
