@@ -34,14 +34,14 @@ export const signUpUser = actionClient
 
     cookies().set("user", JSON.stringify(user));
 
-    // dub.track.lead({
-    //   clickId,
-    //   eventName: "Sign Up",
-    //   customerId: user.id,
-    //   customerName: user.name,
-    //   customerEmail: user.email,
-    //   customerAvatar: user.image,
-    // });
+    dub.track.lead({
+      clickId,
+      eventName: "Sign Up",
+      customerId: user.id,
+      customerName: user.name,
+      customerEmail: user.email,
+      customerAvatar: user.image,
+    });
 
     cookies().delete("dclid");
 
