@@ -4,7 +4,7 @@ import { z } from "zod";
 import { actionClient } from "./safe-action";
 import { cookies } from "next/headers";
 
-export const stripeConfigSchema = z.object({
+const stripeConfigSchema = z.object({
   STRIPE_SECRET_KEY: z.string(),
   STRIPE_PUBLISHABLE_KEY: z.string(),
   STRIPE_PRICE_ID: z.string(),

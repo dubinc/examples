@@ -6,19 +6,20 @@ import { cookies } from "next/headers";
 import { dub } from "../dub";
 import { nanoid } from "nanoid";
 
-export const signupSchema = z.object({
+const signupSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   password: z.string(),
 });
 
 // Fake signup logic and store user in cookies
-export const signup = actionClient
+export const signUpUser = actionClient
   .schema(signupSchema)
   .action(async ({ parsedInput }) => {
     const clickId = cookies().get("dclid")?.value;
 
     if (!clickId) {
+      console.error("No clickId found in cookies. Skipping signup.");
       return;
     }
 
@@ -29,6 +30,8 @@ export const signup = actionClient
     };
 
     cookies().set("user", JSON.stringify(user));
+
+    console.log("Signed up user", user);
 
     dub.track.lead({
       clickId,

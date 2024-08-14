@@ -3,15 +3,15 @@
 import { TextInput, Button } from "@tremor/react";
 import { useState } from "react";
 import { useAction } from "next-safe-action/hooks";
-import { updateStripeConfigAction } from "@/lib/actions/update-stripe-config";
+import { signUpUser } from "@/lib/actions/signup";
 
 export default function LoginPageClient() {
-  const updateStripeConfig = useAction(updateStripeConfigAction, {
+  const signUpUserAction = useAction(signUpUser, {
     onError: (error) => {
       console.error(error);
     },
     onSuccess: () => {
-      alert("Stripe config saved!");
+      alert("User signed up successfully!");
     },
   });
 
@@ -27,7 +27,7 @@ export default function LoginPageClient() {
         className="flex flex-col gap-6"
         onSubmit={(e) => {
           e.preventDefault();
-          // updateStripeConfig.execute(data);
+          signUpUserAction.execute(data);
         }}
       >
         <div className="col-span-full sm:col-span-3">
