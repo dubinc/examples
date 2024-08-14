@@ -5,20 +5,38 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@headlessui/react':
+    specifier: ^2.1.2
+    version: 2.1.2(react-dom@18.0.0)(react@18.0.0)
+  '@headlessui/tailwindcss':
+    specifier: ^0.2.1
+    version: 0.2.1(tailwindcss@3.4.1)
+  '@remixicon/react':
+    specifier: ^4.2.0
+    version: 4.2.0(react@18.0.0)
   '@tremor/react':
     specifier: ^3.17.4
     version: 3.17.4(react-dom@18.0.0)(react@18.0.0)(tailwindcss@3.4.1)
   next:
     specifier: 14.2.5
     version: 14.2.5(react-dom@18.0.0)(react@18.0.0)
+  next-safe-action:
+    specifier: ^7.6.2
+    version: 7.6.2(next@14.2.5)(react-dom@18.0.0)(react@18.0.0)(zod@3.23.8)
   react:
     specifier: ^18
     version: 18.0.0
   react-dom:
     specifier: ^18
     version: 18.0.0(react@18.0.0)
+  zod:
+    specifier: ^3.23.8
+    version: 3.23.8
 
 devDependencies:
+  '@tailwindcss/forms':
+    specifier: ^0.5.7
+    version: 0.5.7(tailwindcss@3.4.1)
   '@types/node':
     specifier: ^20
     version: 20.0.0
@@ -98,6 +116,17 @@ packages:
       react-dom: 18.0.0(react@18.0.0)
     dev: false
 
+  /@floating-ui/react-dom@2.1.1(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-4h84MJt3CHrtG18mGsXuLCHMrug49d7DFkU0RMIyshRveBeyV2hmV/pDaF2Uxtu8kgq5r46llp5E5FQiR0K2Yg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/dom': 1.6.10
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+    dev: false
+
   /@floating-ui/react@0.19.2(react-dom@18.0.0)(react@18.0.0):
     resolution: {integrity: sha512-JyNk4A0Ezirq8FlXECvRtQOX/iBe5Ize0W/pLkrZjfHW9GUV7Xnq6zm6fyZuQzaHHqEnVizmvlA96e1/CkZv+w==}
     peerDependencies:
@@ -106,6 +135,19 @@ packages:
     dependencies:
       '@floating-ui/react-dom': 1.3.0(react-dom@18.0.0)(react@18.0.0)
       aria-hidden: 1.2.4
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+      tabbable: 6.2.0
+    dev: false
+
+  /@floating-ui/react@0.26.22(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-LNv4azPt8SpT4WW7Kku5JNVjLk2GcS0bGGjFTAgqOONRFo9r/aaGHHPpdiIuQbB1t8shmWyWqTTUDmZ9fcNshg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/react-dom': 2.1.1(react-dom@18.0.0)(react@18.0.0)
+      '@floating-ui/utils': 0.2.7
       react: 18.0.0
       react-dom: 18.0.0(react@18.0.0)
       tabbable: 6.2.0
@@ -124,6 +166,21 @@ packages:
     dependencies:
       '@tanstack/react-virtual': 3.9.0(react-dom@18.0.0)(react@18.0.0)
       client-only: 0.0.1
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+    dev: false
+
+  /@headlessui/react@2.1.2(react-dom@18.0.0)(react@18.0.0):
+    resolution: {integrity: sha512-Kb3hgk9gRNRcTZktBrKdHhF3xFhYkca1Rk6e1/im2ENf83dgN54orMW0uSKTXFnUpZOUFZ+wcY05LlipwgZIFQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^18
+      react-dom: ^18
+    dependencies:
+      '@floating-ui/react': 0.26.22(react-dom@18.0.0)(react@18.0.0)
+      '@react-aria/focus': 3.18.1(react@18.0.0)
+      '@react-aria/interactions': 3.22.1(react@18.0.0)
+      '@tanstack/react-virtual': 3.9.0(react-dom@18.0.0)(react@18.0.0)
       react: 18.0.0
       react-dom: 18.0.0(react@18.0.0)
     dev: false
@@ -305,6 +362,79 @@ packages:
     requiresBuild: true
     optional: true
 
+  /@react-aria/focus@3.18.1(react@18.0.0):
+    resolution: {integrity: sha512-N0Cy61WCIv+57mbqC7hiZAsB+3rF5n4JKabxUmg/2RTJL6lq7hJ5N4gx75ymKxkN8GnVDwt4pKZah48Wopa5jw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    dependencies:
+      '@react-aria/interactions': 3.22.1(react@18.0.0)
+      '@react-aria/utils': 3.25.1(react@18.0.0)
+      '@react-types/shared': 3.24.1(react@18.0.0)
+      '@swc/helpers': 0.5.5
+      clsx: 2.1.1
+      react: 18.0.0
+    dev: false
+
+  /@react-aria/interactions@3.22.1(react@18.0.0):
+    resolution: {integrity: sha512-5TLzQaDAQQ5C70yG8GInbO4wIylKY67RfTIIwQPGR/4n5OIjbUD8BOj3NuSsuZ/frUPaBXo1VEBBmSO23fxkjw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    dependencies:
+      '@react-aria/ssr': 3.9.5(react@18.0.0)
+      '@react-aria/utils': 3.25.1(react@18.0.0)
+      '@react-types/shared': 3.24.1(react@18.0.0)
+      '@swc/helpers': 0.5.5
+      react: 18.0.0
+    dev: false
+
+  /@react-aria/ssr@3.9.5(react@18.0.0):
+    resolution: {integrity: sha512-xEwGKoysu+oXulibNUSkXf8itW0npHHTa6c4AyYeZIJyRoegeteYuFpZUBPtIDE8RfHdNsSmE1ssOkxRnwbkuQ==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    dependencies:
+      '@swc/helpers': 0.5.5
+      react: 18.0.0
+    dev: false
+
+  /@react-aria/utils@3.25.1(react@18.0.0):
+    resolution: {integrity: sha512-5Uj864e7T5+yj78ZfLnfHqmypLiqW2mN+nsdslog2z5ssunTqjolVeM15ootXskjISlZ7MojLpq97kIC4nlnAw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    dependencies:
+      '@react-aria/ssr': 3.9.5(react@18.0.0)
+      '@react-stately/utils': 3.10.2(react@18.0.0)
+      '@react-types/shared': 3.24.1(react@18.0.0)
+      '@swc/helpers': 0.5.5
+      clsx: 2.1.1
+      react: 18.0.0
+    dev: false
+
+  /@react-stately/utils@3.10.2(react@18.0.0):
+    resolution: {integrity: sha512-fh6OTQtbeQC0ywp6LJuuKs6tKIgFvt/DlIZEcIpGho6/oZG229UnIk6TUekwxnDbumuYyan6D9EgUtEMmT8UIg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    dependencies:
+      '@swc/helpers': 0.5.5
+      react: 18.0.0
+    dev: false
+
+  /@react-types/shared@3.24.1(react@18.0.0):
+    resolution: {integrity: sha512-AUQeGYEm/zDTN6zLzdXolDxz3Jk5dDL7f506F07U8tBwxNNI3WRdhU84G0/AaFikOZzDXhOZDr3MhQMzyE7Ydw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
+
+  /@remixicon/react@4.2.0(react@18.0.0):
+    resolution: {integrity: sha512-eGhKpZ88OU0qkcY9pJu6khBmItDV82nU130E6C68yc+FbljueHlUYy/4CrJsmf860RIDMay2Rpzl27OSJ81miw==}
+    peerDependencies:
+      react: '>=18.2.0'
+    dependencies:
+      react: 18.0.0
+    dev: false
+
   /@rushstack/eslint-patch@1.10.4:
     resolution: {integrity: sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==}
     dev: true
@@ -319,6 +449,15 @@ packages:
       '@swc/counter': 0.1.3
       tslib: 2.6.3
     dev: false
+
+  /@tailwindcss/forms@0.5.7(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-QE7X69iQI+ZXwldE+rzasvbJiyV/ju1FGHH0Qn2W3FKbuYtqp8LKcy6iSw79fVUT5/Vvf+0XgLCeYVG+UV6hOw==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.4
+      tailwindcss: 3.4.1
+    dev: true
 
   /@tanstack/react-virtual@3.9.0(react-dom@18.0.0)(react@18.0.0):
     resolution: {integrity: sha512-5TeTSQBMV1PIFzBP9cduIX5klRaTvbOw+CxRx3LaUhwqiZLEZBZqz8anEIqG4eHNhDAe+BLarRDeNE9cNM1/EA==}
@@ -2108,6 +2247,11 @@ packages:
       braces: 3.0.3
       picomatch: 2.3.1
 
+  /mini-svg-data-uri@1.4.4:
+    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
+    hasBin: true
+    dev: true
+
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -2158,6 +2302,33 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /next-safe-action@7.6.2(next@14.2.5)(react-dom@18.0.0)(react@18.0.0)(zod@3.23.8):
+    resolution: {integrity: sha512-lqOmV1wmnYafI/xnUxRfX3dkx67cDzJDrnZCnPoU4zMSC1A1aq47ZGXsmLM0AnlOOo4dNPZNFvUmNn+iSH1OBg==}
+    engines: {node: '>=18.17'}
+    peerDependencies:
+      '@sinclair/typebox': '>= 0.33.3'
+      next: '>= 14.0.0'
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
+      valibot: '>= 0.36.0'
+      yup: '>= 1.0.0'
+      zod: '>= 3.0.0'
+    peerDependenciesMeta:
+      '@sinclair/typebox':
+        optional: true
+      valibot:
+        optional: true
+      yup:
+        optional: true
+      zod:
+        optional: true
+    dependencies:
+      next: 14.2.5(react-dom@18.0.0)(react@18.0.0)
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+      zod: 3.23.8
+    dev: false
 
   /next@14.2.5(react-dom@18.0.0)(react@18.0.0):
     resolution: {integrity: sha512-0f8aRfBVL+mpzfBjYfQuLWh2WyAwtJXCRfkPF4UJ5qd2YwrHczsrSzXU4tRMV0OAxR8ZJZWPFn6uhSC56UTsLA==}
@@ -3162,3 +3333,7 @@ packages:
     resolution: {integrity: sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==}
     engines: {node: '>= 14'}
     hasBin: true
+
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+    dev: false
