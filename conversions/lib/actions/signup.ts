@@ -5,8 +5,9 @@ import { actionClient } from "./safe-action";
 import { cookies } from "next/headers";
 import { dub } from "../dub";
 import { nanoid } from "nanoid";
-import { getStripe, getStripeConfig } from "../stripe";
+import { getStripe } from "../stripe";
 import { redirect } from "next/navigation";
+import { getConfig } from "../config";
 
 const signupSchema = z.object({
   name: z.string(),
@@ -45,7 +46,7 @@ export const signUpUser = actionClient
     cookies().delete("dclid");
 
     const stripe = getStripe();
-    const config = getStripeConfig();
+    const config = getConfig();
 
     // Create a customer
     const customer = await stripe.customers.create({

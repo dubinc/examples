@@ -3,10 +3,10 @@
 import { TextInput, Button } from "@tremor/react";
 import { useState } from "react";
 import { useAction } from "next-safe-action/hooks";
-import { updateStripeConfigAction } from "@/lib/actions/update-stripe-config";
+import { updateConfigAction } from "@/lib/actions/update-config";
 
 export default function ConfigPageClient({ config }: { config: any }) {
-  const updateStripeConfig = useAction(updateStripeConfigAction, {
+  const updateConfig = useAction(updateConfigAction, {
     onError: (error) => {
       console.error(error);
     },
@@ -27,7 +27,7 @@ export default function ConfigPageClient({ config }: { config: any }) {
         className="flex flex-col gap-6"
         onSubmit={(e) => {
           e.preventDefault();
-          updateStripeConfig.execute(data);
+          updateConfig.execute(data);
         }}
       >
         <div className="col-span-full sm:col-span-3">
