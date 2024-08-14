@@ -87,7 +87,9 @@ export default function LoginPageClient() {
           />
         </div>
 
-        <Button variant="primary">Signup</Button>
+        <Button variant="primary" loading={signUpUserAction.isExecuting}>
+          Signup
+        </Button>
       </form>
     </main>
   );

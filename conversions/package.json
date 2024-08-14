@@ -20,6 +20,7 @@
     "next-safe-action": "^7.6.2",
     "react": "^18",
     "react-dom": "^18",
+    "stripe": "^16.7.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

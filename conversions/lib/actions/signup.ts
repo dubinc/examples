@@ -5,6 +5,8 @@ import { actionClient } from "./safe-action";
 import { cookies } from "next/headers";
 import { dub } from "../dub";
 import { nanoid } from "nanoid";
+import { getStripe, getStripeConfig } from "../stripe";
+import { redirect } from "next/navigation";
 
 const signupSchema = z.object({
   name: z.string(),
@@ -31,18 +33,54 @@ export const signUpUser = actionClient
 
     cookies().set("user", JSON.stringify(user));
 
-    console.log("Signed up user", user);
-
-    dub.track.lead({
-      clickId,
-      eventName: "Sign Up",
-      customerId: user.id,
-      customerName: user.name,
-      customerEmail: user.email,
-      customerAvatar: user.image,
-    });
+    // dub.track.lead({
+    //   clickId,
+    //   eventName: "Sign Up",
+    //   customerId: user.id,
+    //   customerName: user.name,
+    //   customerEmail: user.email,
+    //   customerAvatar: user.image,
+    // });
 
     cookies().delete("dclid");
 
-    return { ok: true };
+    const stripe = getStripe();
+    const config = getStripeConfig();
+
+    // Create a customer
+    const customer = await stripe.customers.create({
+      name: user.name,
+      address: {
+        line1: "510 Townsend St",
+        postal_code: "98140",
+        city: "San Francisco",
+        state: "CA",
+        country: "US",
+      },
+      metadata: {
+        dubCustomerId: user.id,
+      },
+    });
+
+    // Create a subscription
+    const { url } = await stripe.checkout.sessions.create({
+      customer: customer.id,
+      success_url: "http://localhost:3000?session_id={CHECKOUT_SESSION_ID}",
+      line_items: [
+        {
+          price: config.STRIPE_PRICE_ID,
+          quantity: 1,
+        },
+      ],
+      mode: "subscription",
+      metadata: {
+        dubCustomerId: user.id,
+      },
+    });
+
+    if (url) {
+      redirect(url);
+    }
+
+    return { ok: true, user, checkoutUrl: url };
   });
