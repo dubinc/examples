@@ -72,7 +72,11 @@ export const signUpUser = actionClient
     // Create a subscription
     const { url } = await stripe.checkout.sessions.create({
       customer: customer.id,
-      success_url: "http://localhost:3000?session_id={CHECKOUT_SESSION_ID}",
+      success_url: `${
+        process.env.VERCEL === "1"
+          ? "https://conversions.dub.sh"
+          : "http://localhost:3000"
+      }?step=success`,
       line_items: [
         {
           price: config.STRIPE_PRICE_ID,
