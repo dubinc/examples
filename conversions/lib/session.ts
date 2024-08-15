@@ -12,16 +12,8 @@ export const setSession = (user: Session) => {
   cookies().set("DEMO_USER", JSON.stringify(user));
 };
 
-export const getSession = () => {
+export const getSession = (): Session => {
   const cookieStore = cookies();
 
-  const user = JSON.parse(cookieStore.get("DEMO_USER")?.value || "{}");
-
-  return {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    image: user.image,
-    password: user.password,
-  };
+  return JSON.parse(cookieStore.get("DEMO_USER")?.value || "{}");
 };
