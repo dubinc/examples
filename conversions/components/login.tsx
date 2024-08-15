@@ -63,7 +63,7 @@ export default function LoginClient({ session }: { session: Session }) {
           name="email"
           className="mt-2"
           required
-          placeholder=""
+          placeholder="panic@thedis.co"
           onChange={(e) => setData({ ...data, email: e.target.value })}
           value={data.email}
         />
