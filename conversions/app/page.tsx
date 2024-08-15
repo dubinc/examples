@@ -1,5 +1,6 @@
+import { getSession } from "@/lib/session";
 import LoginPageClient from "./page-client";
 
 export default function LoginPage() {
-  return <LoginPageClient />;
+  return <LoginPageClient session={getSession()} />;
 }

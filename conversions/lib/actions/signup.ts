@@ -3,11 +3,12 @@
 import { z } from "zod";
 import { actionClient } from "./safe-action";
 import { cookies } from "next/headers";
-import { dub } from "../dub";
 import { nanoid } from "nanoid";
 import { getStripe } from "../stripe";
 import { redirect } from "next/navigation";
 import { getConfig } from "../config";
+import { getDub } from "../dub";
+import { setSession } from "../session";
 
 const signupSchema = z.object({
   name: z.string(),
@@ -26,15 +27,18 @@ export const signUpUser = actionClient
       return;
     }
 
+    const randomId = nanoid();
+
     const user = {
       ...parsedInput,
-      id: nanoid(),
-      image: "https://api.dicebear.com/9.x/pixel-art/svg",
+      id: randomId,
+      image: `https://api.dicebear.com/9.x/pixel-art/svg?seed=${randomId}`,
     };
 
-    cookies().set("user", JSON.stringify(user));
+    setSession(user);
 
-    dub.track.lead({
+    const dub = getDub();
+    await dub.track.lead({
       clickId,
       eventName: "Sign Up",
       customerId: user.id,
@@ -51,6 +55,7 @@ export const signUpUser = actionClient
     // Create a customer
     const customer = await stripe.customers.create({
       name: user.name,
+      email: user.email,
       address: {
         line1: "510 Townsend St",
         postal_code: "98140",

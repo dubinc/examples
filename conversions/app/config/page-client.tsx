@@ -1,35 +1,59 @@
 "use client";
 
-import { TextInput, Button } from "@tremor/react";
 import { useState } from "react";
 import { useAction } from "next-safe-action/hooks";
 import { updateConfigAction } from "@/lib/actions/update-config";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ReloadIcon } from "@radix-ui/react-icons";
+import { Config } from "@/lib/config";
 
-export default function ConfigPageClient({ config }: { config: any }) {
-  const updateConfig = useAction(updateConfigAction, {
+export default function ConfigPageClient({ config }: { config: Config }) {
+  const { execute, isExecuting } = useAction(updateConfigAction, {
     onError: (error) => {
       console.error(error);
     },
     onSuccess: () => {
-      alert("Stripe config saved!");
+      toast.success("Config saved!");
     },
   });
 
   const [data, setData] = useState({
+    DUB_API_KEY: config.DUB_API_KEY || "",
     STRIPE_SECRET_KEY: config.STRIPE_SECRET_KEY || "",
     STRIPE_PUBLISHABLE_KEY: config.STRIPE_PUBLISHABLE_KEY || "",
     STRIPE_PRICE_ID: config.STRIPE_PRICE_ID || "",
   });
 
   return (
-    <main className="flex min-h-screen flex-col p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center">
       <form
-        className="flex flex-col gap-6"
+        className="grid max-w-screen-sm w-full gap-6 p-8 border border-tremor-border rounded-xl"
         onSubmit={(e) => {
           e.preventDefault();
-          updateConfig.execute(data);
+          execute(data);
         }}
       >
+        <div className="col-span-full sm:col-span-3">
+          <label
+            htmlFor="DUB_API_KEY"
+            className="text-tremor-default font-medium text-tremor-content-strong dark:text-dark-tremor-content-strong"
+          >
+            DUB_API_KEY
+            <span className="text-red-500">*</span>
+          </label>
+          <Input
+            type="text"
+            name="DUB_API_KEY"
+            className="mt-2"
+            required
+            placeholder=""
+            onChange={(e) => setData({ ...data, DUB_API_KEY: e.target.value })}
+            value={data.DUB_API_KEY}
+          />
+        </div>
+
         <div className="col-span-full sm:col-span-3">
           <label
             htmlFor="STRIPE_SECRET_KEY"
@@ -38,7 +62,7 @@ export default function ConfigPageClient({ config }: { config: any }) {
             STRIPE_SECRET_KEY
             <span className="text-red-500">*</span>
           </label>
-          <TextInput
+          <Input
             type="text"
             name="STRIPE_SECRET_KEY"
             className="mt-2"
@@ -59,7 +83,7 @@ export default function ConfigPageClient({ config }: { config: any }) {
             STRIPE_PUBLISHABLE_KEY
             <span className="text-red-500">*</span>
           </label>
-          <TextInput
+          <Input
             type="text"
             name="STRIPE_PUBLISHABLE_KEY"
             className="mt-2"
@@ -80,7 +104,7 @@ export default function ConfigPageClient({ config }: { config: any }) {
             STRIPE_PRICE_ID
             <span className="text-red-500">*</span>
           </label>
-          <TextInput
+          <Input
             type="text"
             name="STRIPE_PRICE_ID"
             className="mt-2"
@@ -93,7 +117,10 @@ export default function ConfigPageClient({ config }: { config: any }) {
           />
         </div>
 
-        <Button variant="primary">Save Changes</Button>
+        <Button disabled={isExecuting} className="!w-full">
+          {isExecuting && <ReloadIcon className="mr-2 size-4 animate-spin" />}
+          Save changes
+        </Button>
       </form>
     </main>
   );
