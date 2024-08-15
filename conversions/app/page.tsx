@@ -1,6 +1,12 @@
+import Controller from "@/components/controller";
+import { getConfig } from "@/lib/config";
 import { getSession } from "@/lib/session";
-import LoginPageClient from "./page-client";
 
-export default function LoginPage() {
-  return <LoginPageClient session={getSession()} />;
+export default function Page() {
+  const [config, session] = [getConfig(), getSession()];
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <Controller config={config} session={session} />
+    </main>
+  );
 }

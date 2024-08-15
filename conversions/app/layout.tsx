@@ -4,6 +4,7 @@ import { Analytics as DubAnalytics } from "@dub/analytics/react";
 
 import "./globals.css";
 import { Toaster } from "sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Toaster />
-        {children}
+        <TooltipProvider delayDuration={100}>{children}</TooltipProvider>
       </body>
       <DubAnalytics />
     </html>

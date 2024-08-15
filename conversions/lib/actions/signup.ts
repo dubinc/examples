@@ -23,8 +23,9 @@ export const signUpUser = actionClient
     const clickId = cookies().get("dclid")?.value;
 
     if (!clickId) {
-      console.error("No clickId found in cookies. Skipping signup.");
-      return;
+      // fake a 250ms delay
+      await new Promise((resolve) => setTimeout(resolve, 250));
+      throw new Error("No clickId found in cookies. Skipping signup.");
     }
 
     const randomId = nanoid();
