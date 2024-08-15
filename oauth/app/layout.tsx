@@ -17,8 +17,9 @@ const satoshi = localFont({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dub OAuth App",
-  description: "Example OAuth app for Dub",
+  title: "Dub OAuth Flow Demo",
+  description:
+    "Learn how to use Dub OAuth Flow to seamlessly integrate Dub's link infrastructure into your app.",
 };
 
 export default async function RootLayout({
