@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dub Conversions Demo App
 
-## Getting Started
+[Dub Conversions](https://dub.co/help/article/dub-conversions) is a powerful tool that lets you to turn any [short link you create on Dub](https://dub.co/help/article/how-to-create-link) into a full attribution engine. This allows you to understand how well your links are translating to actual users and revenue dollars.
 
-First, run the development server:
+This example app demonstrates the end-to-end flow of Dub Conversions – from a user clicking on a conversion-enabled link, to signing up for an account, and making a purchase via Stripe.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Step 1: Enable the Stripe Integration on Dub
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Navigate to the [Stripe integration page](https://app.dub.co/integrations/stripe) in your Dub workspace.
+2. Click on the "Enable" button to enable the Stripe integration, which will redirect you to the Stripe App installation flow.
+3. Select the Stripe account to install the app on, and select "Install App".
+4. Once this is done, you will be redirected back to your Dub workspace and you should see that the integration is now installed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Step 2: Create a Stripe product in test mode
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. In the Stripe account that you installed the Dub Conversions app, create a product in test mode.
+2. Copy the price ID for the product – you'll need it in Step 5.
 
-## Learn More
+## Step 3: Create a Dub API Key
 
-To learn more about Next.js, take a look at the following resources:
+1. Create a [Workspace API key](https://app.dub.co/settings/tokens) in your Stripe dashboard.
+2. Copy the value of the API key that's generated – you'll need it in Step 5.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Step 4: Go through the conversion flow on the demo app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In this step, we will go through the end-to-end journey of a customer clicking on a referral link, signing up, and making a purchase.
 
-## Deploy on Vercel
+1. Create a short link on your [Dub dashboard](https://app.dub.co) with https://conversions.dub.sh as the destination URL and Conversion Tracking enabled.
+2. When you click on this link it'll bring you to the conversion demo app. You'll notice that there is a `?dclid` query parameter in the browser URL bar, and that it is also stored as a first-party cookie as well.
+3. In the demo app, under "Set up your configuration", enter the values that you got from previous steps:
+   - DUB_API_KEY: the Dub API key value from step 4
+   - STRIPE_SECRET_KEY: your Stripe test mode secret key (https://dashboard.stripe.com/test/apikeys)
+   - STRIPE_PUBLISHABLE_KEY: your Stripe test mode publishable key (https://dashboard.stripe.com/test/apikeys)
+   - STRIPE_PRICE_ID: the Stripe price ID from step 3
+4. Under "Login & checkout", enter dummy values for Name, email, and password. All these values (along with the config values) will be stored in cookies for simplicity.
+5. Click "Signup" and you will be redirected to the Stripe checkout flow with the test mode Stripe product you configured earlier.
+6. Complete the checkout flow, and you will be redirected back to the Conversion demo app
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Step 5: View conversion results
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Navigate to your [Dub Analytics dashboard](https://app.dub.co/analytics?view=funnel) to view your conversion results.
+2. You should also be able to see the real-time events stream on the [Events dashboard](https://app.dub.co/events).
