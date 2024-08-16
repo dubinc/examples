@@ -4,7 +4,7 @@
 
 This example app demonstrates the end-to-end flow of Dub Conversions – from a user clicking on a conversion-enabled link, to signing up for an account, and making a purchase via Stripe.
 
-Demo app URL: https://conversions.dub.sh
+Live demo: https://conversions.dub.sh
 
 ## Step 1: Enable the Stripe Integration on Dub
 
