@@ -4,6 +4,8 @@ Dub supports [OAuth 2.0 authentication](https://dub.co/docs/integrations/quickst
 
 This example demonstrates how to authenticate users with Dub OAuth 2.0 flow.
 
+Live demo: https://oauth.dub.sh
+
 ## Getting Started
 
 Follow the steps below to get started:
