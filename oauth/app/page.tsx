@@ -1,9 +1,6 @@
 import { LinksDemo } from "@/components/links-demo";
-import SignInWithDub from "@/components/signin-with-dub";
 import { getSession } from "@/lib/actions";
-import { cn } from "@dub/utils";
 import Link from "next/link";
-import { Suspense } from "react";
 
 export default async function Home() {
   const session = await getSession();
@@ -25,17 +22,22 @@ export default async function Home() {
           </h2>
         </div>
 
-        {session?.user ? (
+        <div className="flex gap-2">
           <Link
             href="https://dub.co/docs/integrations/quickstart"
             target="_blank"
-            className="rounded-full mx-auto max-w-fit border px-5 py-2 text-sm font-medium shadow-sm transition-all hover:ring-4 hover:ring-gray-200 border-gray-200 bg-white hover:border-gray-400 hover:text-gray-800 text-gray-500"
+            className="rounded-full mx-auto max-w-fit border px-5 py-2 text-sm font-medium shadow-sm transition-all hover:ring-4 hover:ring-gray-300 border-black bg-black text-white"
           >
             Read the docs
           </Link>
-        ) : (
-          <SignInWithDub />
-        )}
+          <Link
+            href="https://github.com/dubinc/examples/tree/main/oauth"
+            target="_blank"
+            className="rounded-full mx-auto max-w-fit border px-5 py-2 text-sm font-medium shadow-sm transition-all hover:ring-4 hover:ring-gray-200 border-gray-200 bg-white hover:border-gray-400 hover:text-gray-800 text-gray-500"
+          >
+            View the code
+          </Link>
+        </div>
 
         <LinksDemo />
       </section>
