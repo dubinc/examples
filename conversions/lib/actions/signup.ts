@@ -65,6 +65,7 @@ export const signUpUser = actionClient
         country: "US",
       },
       metadata: {
+        dubClickId: clickId,
         dubCustomerId: user.id,
       },
     });
