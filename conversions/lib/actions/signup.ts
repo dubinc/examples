@@ -28,8 +28,8 @@ export const signUpUser = actionClient
       image: `https://api.dicebear.com/9.x/pixel-art/svg?seed=${randomId}`,
     };
 
-    // fake a 250ms delay
-    await new Promise((resolve) => setTimeout(resolve, 250));
+    // fake a 150ms delay
+    await new Promise((resolve) => setTimeout(resolve, 150));
     setSession(user);
 
     const clickId = cookies().get("dclid")?.value;
