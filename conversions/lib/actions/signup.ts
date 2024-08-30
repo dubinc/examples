@@ -39,14 +39,14 @@ export const signUpUser = actionClient
     }
 
     const dub = getDub();
-    await dub.track.lead({
-      clickId,
-      eventName: "Sign Up",
-      customerId: user.id,
-      customerName: user.name,
-      customerEmail: user.email,
-      customerAvatar: user.image,
-    });
+    // await dub.track.lead({
+    //   clickId,
+    //   eventName: "Sign Up",
+    //   customerId: user.id,
+    //   customerName: user.name,
+    //   customerEmail: user.email,
+    //   customerAvatar: user.image,
+    // });
 
     cookies().delete("dclid");
 
