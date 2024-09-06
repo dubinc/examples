@@ -114,8 +114,8 @@ export const LinksDemo = () => {
             onDelete={() => deleteShortLink(id)}
           />
         ))}
-        {shortLinks.length < 4 &&
-          [...Array(4 - shortLinks.length)].map((_, idx) => (
+        {shortLinks.length < 3 &&
+          [...Array(3 - shortLinks.length)].map((_, idx) => (
             <LinkPlaceholderCard key={idx} />
           ))}
       </motion.ul>
