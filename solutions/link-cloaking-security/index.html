@@ -16,8 +16,57 @@
   <body>
     <h1>Dub Link Cloaking with Security Headers</h1>
     <p>
-      Learn how to cloak your links on Dub with the appropriate security
-      headers.
+      Here's an example of how you can leverage security headers to cloak your
+      links on Dub while also making sure your links are secure.
     </p>
+    <p>
+      To do that, you will need to whitelabel your
+      <a
+        href="https://dub.co/help/article/how-to-add-custom-domain"
+        target="_blank"
+        >Dub short domain</a
+      >
+      by setting the following response headers on your site (the destination
+      URL that you want to cloak):
+    </p>
+    <pre><code>X-Frame-Options: ALLOW-FROM [shortdomain.com]
+Content-Security-Policy: frame-ancestors 'self' [shortdomain.com]</code></pre>
+
+    <p>
+      This will ensure that your site cannot be embedded in third-party sites
+      but can still be cloaked by your Dub short domain.
+    </p>
+
+    <p>Learn more:</p>
+
+    <ul>
+      <li>
+        <a
+          href="https://github.com/dubinc/examples/tree/main/solutions/link-cloaking-security"
+          target="_blank"
+          >Code example</a
+        >
+      </li>
+      <li>
+        Demo site:
+        <a href="https://link-cloaking-security.vercel.app" target="_blank"
+          >link-cloaking-security.vercel.app</a
+        >
+      </li>
+
+      <li>
+        Demo short link (enabled):
+        <a href="https://dub.link/Q2KxuZa" target="_blank">dub.link/Q2KxuZa</a>
+      </li>
+
+      <li>
+        Any other iframes (disabled):
+        <a
+          href="https://iframetester.com/?url=https://link-cloaking-security.vercel.app"
+          target="_blank"
+          >iframetester.com/?url=https://link-cloaking-security.vercel.app</a
+        >
+      </li>
+    </ul>
   </body>
 </html>
