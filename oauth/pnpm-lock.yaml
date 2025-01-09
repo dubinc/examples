@@ -21,8 +21,8 @@ importers:
         specifier: ^0.0.63
         version: 0.0.63(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       dub:
-        specifier: ^0.34.2
-        version: 0.34.2(zod@3.23.8)
+        specifier: ^0.46.11
+        version: 0.46.11(zod@3.23.8)
       framer-motion:
         specifier: ^11.3.21
         version: 11.3.21(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1403,8 +1403,8 @@ packages:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
 
-  dub@0.34.2:
-    resolution: {integrity: sha512-Wdajr8xKmyIkLfN/7vhR8S99WMfJXl0g1jSA5UhObLQov88w0AqacoxBGfsUziXs0RnwnKaEm8CHsQeoe2cCbQ==}
+  dub@0.46.11:
+    resolution: {integrity: sha512-mxD+EBJFwJdBk2wvvV4wBVbinOov1YxY4l7xxxwtTRtdnYoHafEygyqVCg923z4c3x7nA5AjtbX6eeBEUVdxPg==}
     peerDependencies:
       zod: '>= 3'
 
@@ -4232,7 +4232,7 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  dub@0.34.2(zod@3.23.8):
+  dub@0.46.11(zod@3.23.8):
     dependencies:
       zod: 3.23.8
 
