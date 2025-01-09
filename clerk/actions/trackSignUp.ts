@@ -14,8 +14,6 @@ export async function trackSignUp({
   try {
     const cookieStore = await cookies();
     const dub_id = cookieStore.get("dub_id")?.value;
-    // console.log("dub_id", dub_id);
-    // return { ok: true };
     if (dub_id) {
       // Send lead event to Dub
       await dub.track.lead({
