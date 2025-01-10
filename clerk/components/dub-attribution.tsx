@@ -19,6 +19,7 @@ export function DubAttribution() {
       avatar: user.imageUrl,
     }).then(async (res) => {
       if (res.ok) await user.reload();
+      else console.error(res.error);
     });
   }, [user]);
 
