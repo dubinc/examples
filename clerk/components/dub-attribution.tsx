@@ -1,6 +1,6 @@
 "use client";
 
-import { trackSignUp } from "@/actions/trackSignUp";
+import { trackLead } from "@/actions/trackLead";
 import { useUser } from "@clerk/nextjs";
 import { useEffect } from "react";
 
@@ -8,13 +8,15 @@ export function DubAttribution() {
   const { user } = useUser();
 
   useEffect(() => {
-    if (!user?.publicMetadata || user.publicMetadata.__dub) return;
+    if (!user || user.publicMetadata.dubClickId) return;
 
     console.log("tracking sign up");
     // The user is loaded but hasn't been persisted to Dub yet:
-    trackSignUp({
+    trackLead({
       id: user.id,
-      email: user.primaryEmailAddress!.emailAddress,
+      name: user.fullName!,
+      email: user.primaryEmailAddress?.emailAddress,
+      avatar: user.imageUrl,
     }).then(async (res) => {
       if (res.ok) await user.reload();
     });

@@ -4,12 +4,16 @@ import { dub } from "@/lib/dub";
 import { clerkClient } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
 
-export async function trackSignUp({
+export async function trackLead({
   id,
+  name,
   email,
+  avatar,
 }: {
   id: string;
-  email: string;
+  name?: string | null;
+  email?: string | null;
+  avatar?: string | null;
 }) {
   try {
     const cookieStore = await cookies();
@@ -19,8 +23,10 @@ export async function trackSignUp({
       await dub.track.lead({
         clickId: dub_id,
         eventName: "Sign Up",
-        customerId: id,
+        externalId: id,
+        customerName: name,
         customerEmail: email,
+        customerAvatar: avatar,
       });
 
       // Delete the dub_id cookie
@@ -32,7 +38,7 @@ export async function trackSignUp({
     const clerk = await clerkClient();
     await clerk.users.updateUser(id, {
       publicMetadata: {
-        __dub: true,
+        dubClickId: dub_id,
       },
     });
 
