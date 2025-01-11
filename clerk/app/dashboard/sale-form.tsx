@@ -1,10 +1,12 @@
 "use client";
 
-import { trackSale } from "@/actions/trackSale";
+import { trackSale } from "@/actions/track-sale";
+import { LoadingCircle } from "@/components/loading-circle";
+import { cn } from "@/lib/cn";
 import { useActionState } from "react";
 
 export function SaleForm() {
-  const [state, formAction] = useActionState(trackSale, {
+  const [state, formAction, isPending] = useActionState(trackSale, {
     message: "",
     ok: true,
   });
@@ -20,9 +22,13 @@ export function SaleForm() {
         />
         <button
           type="submit"
-          className="h-7 rounded-lg border border-black bg-black px-2 text-sm font-medium text-white"
+          className={cn(
+            "flex h-7 w-16 items-center justify-center rounded-lg border border-black bg-black text-sm font-medium text-white",
+            isPending && "cursor-not-allowed opacity-50",
+          )}
+          disabled={isPending}
         >
-          Submit
+          {isPending ? <LoadingCircle /> : "Submit"}
         </button>
       </div>
       <p

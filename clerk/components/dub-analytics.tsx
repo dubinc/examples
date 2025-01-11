@@ -1,10 +1,11 @@
 "use client";
 
-import { trackLead } from "@/actions/trackLead";
+import { trackLead } from "@/actions/track-lead";
 import { useUser } from "@clerk/nextjs";
+import { Analytics, AnalyticsProps } from "@dub/analytics/react";
 import { useEffect } from "react";
 
-export function DubAttribution() {
+export function DubAnalytics(props: AnalyticsProps) {
   const { user } = useUser();
 
   useEffect(() => {
@@ -23,5 +24,5 @@ export function DubAttribution() {
     });
   }, [user]);
 
-  return null;
+  return <Analytics {...props} />;
 }

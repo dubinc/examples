@@ -1,4 +1,4 @@
-import { DubAttribution } from "@/components/dub-attribution";
+import { DubAnalytics } from "@/components/dub-analytics";
 import {
   ClerkProvider,
   SignedIn,
@@ -7,7 +7,6 @@ import {
   SignUpButton,
   UserButton,
 } from "@clerk/nextjs";
-import { Analytics as DubAnalytics } from "@dub/analytics/react";
 import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 import Image from "next/image";
@@ -73,7 +72,6 @@ export default function RootLayout({
           </div>
         </body>
         <DubAnalytics />
-        <DubAttribution />
       </html>
     </ClerkProvider>
   );
