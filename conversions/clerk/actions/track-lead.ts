@@ -25,11 +25,11 @@ export async function trackLead({
 
   try {
     const cookieStore = await cookies();
-    const dub_id = cookieStore.get("dub_id")?.value;
-    if (dub_id) {
+    const dubId = cookieStore.get("dub_id")?.value;
+    if (dubId) {
       // Send lead event to Dub
       await dub.track.lead({
-        clickId: dub_id,
+        clickId: dubId,
         eventName: "Sign Up",
         externalId: id,
         customerName: name,
@@ -46,7 +46,7 @@ export async function trackLead({
     const clerk = await clerkClient();
     await clerk.users.updateUser(id, {
       publicMetadata: {
-        dubClickId: dub_id,
+        dubClickId: dubId || "n/a",
       },
     });
 

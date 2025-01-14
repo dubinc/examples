@@ -11,7 +11,6 @@ export function DubAnalytics(props: AnalyticsProps) {
   useEffect(() => {
     if (!user || user.publicMetadata.dubClickId) return;
 
-    console.log("tracking sign up");
     // The user is loaded but hasn't been persisted to Dub yet:
     trackLead({
       id: user.id,
