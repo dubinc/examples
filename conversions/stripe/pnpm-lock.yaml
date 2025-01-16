@@ -30,8 +30,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       dub:
-        specifier: ^0.35.0
-        version: 0.35.0(zod@3.23.8)
+        specifier: ^0.46.15
+        version: 0.46.15(zod@3.23.8)
       nanoid:
         specifier: ^5.0.7
         version: 5.0.7
@@ -799,8 +799,8 @@ packages:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
 
-  dub@0.35.0:
-    resolution: {integrity: sha512-50M3QNWH9ANXVe6PBKbN6qf553D1fLZmK1AMOa1tmxIloYOjFL0VrVO8bwpNX2/02Om/CSUyxmhp4oZCYLwWbw==}
+  dub@0.46.15:
+    resolution: {integrity: sha512-KPyCRKFraa7plD0f8MN05zI0r+7UYfu7muXUHtZbS0CuAIvTxd1fwp/FYrO49M8mwd97kzYD+N3c+ckpZe0d6A==}
     peerDependencies:
       zod: '>= 3'
 
@@ -2626,7 +2626,7 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  dub@0.35.0(zod@3.23.8):
+  dub@0.46.15(zod@3.23.8):
     dependencies:
       zod: 3.23.8
 
