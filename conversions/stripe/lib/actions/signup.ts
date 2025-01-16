@@ -32,7 +32,7 @@ export const signUpUser = actionClient
     await new Promise((resolve) => setTimeout(resolve, 150));
     setSession(user);
 
-    const clickId = cookies().get("dclid")?.value;
+    const clickId = cookies().get("dub_id")?.value;
 
     if (!clickId) {
       throw new Error("No clickId found in cookies. Skipping checkout flow.");
@@ -48,7 +48,7 @@ export const signUpUser = actionClient
       customerAvatar: user.image,
     });
 
-    cookies().delete("dclid");
+    cookies().delete("dub_id");
 
     const stripe = getStripe();
     const config = getConfig();
