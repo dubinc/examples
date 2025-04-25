@@ -2,10 +2,16 @@
 
 [Dub Conversions](https://dub.co/help/article/dub-conversions) is a powerful tool that lets you to turn any [short link you create on Dub](https://dub.co/help/article/how-to-create-link) into a full attribution engine. This allows you to understand how well your links are translating to actual users and revenue dollars.
 
-This example app demonstrates the end-to-end flow of Dub Conversions – from a user clicking on a conversion-enabled link, to signing up for an account, and making a purchase via Stripe.
+This example app demonstrates the end-to-end flow of [how conversion tracking works on Dub](https://dub.co/docs/conversions/quickstart) – from a user clicking on a conversion-enabled link, to signing up for an account, and making a purchase via Stripe.
 
-- Read the docs: https://dub.co/docs/conversions/sales/stripe
-- Check out the live demo: https://conversions.dub.sh
+- [Read the docs](https://dub.co/docs/conversions/sales/stripe)
+- [Check out the live demo](https://conversions.dub.sh)
+
+> [!TIP]
+> This example uses [Option 3 (Stripe Customers)](https://dub.co/docs/conversions/sales/stripe#option-3%3A-using-stripe-customers) in the [Stripe integration guide](https://dub.co/docs/conversions/sales/stripe).
+> If you're using Stripe payment links or Stripe `checkout.session.create`, check out the other examples in the Stripe integration guide:
+> - [Option 1: Stripe payment links](https://dub.co/docs/conversions/sales/stripe#option-1%3A-using-stripe-payment-links)
+> - [Option 2: Stripe checkout session](https://dub.co/docs/conversions/sales/stripe#option-2%3A-using-stripe-checkout-recommended)
 
 ## Step 1: Enable the Stripe Integration on Dub
 

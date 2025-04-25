@@ -25,7 +25,6 @@ export const signUpUser = actionClient
     const user = {
       ...parsedInput,
       id: randomId,
-      image: `https://api.dicebear.com/9.x/pixel-art/svg?seed=${randomId}`,
     };
 
     // fake a 150ms delay
@@ -45,13 +44,19 @@ export const signUpUser = actionClient
       customerId: user.id,
       customerName: user.name,
       customerEmail: user.email,
-      customerAvatar: user.image,
     });
 
     cookies().delete("dub_id");
 
     const stripe = getStripe();
     const config = getConfig();
+
+    /*
+    This example uses option 3 (Stripe Customers) in the Stripe integration guide: 
+    https://dub.co/docs/conversions/sales/stripe#option-3%3A-using-stripe-customers
+
+    If you're using Stripe payment links or Stripe checkout.session.create, check out the other examples in the Stripe integration guide.
+    */
 
     // Create a customer
     const customer = await stripe.customers.create({
@@ -84,10 +89,7 @@ export const signUpUser = actionClient
           quantity: 1,
         },
       ],
-      mode: "subscription",
-      metadata: {
-        dubCustomerId: user.id,
-      },
+      mode: "payment",
     });
 
     if (url) {
