@@ -10,6 +10,8 @@ export function PageClient() {
   const { data: session, status } = useSession();
   const [publicToken, setPublicToken] = useState("");
 
+  console.log("session", session);
+
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
