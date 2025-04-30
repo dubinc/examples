@@ -10,7 +10,6 @@ export function PageClient() {
   const { data: session, status } = useSession();
   const [publicToken, setPublicToken] = useState("");
 
-  console.log("session", session);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -20,7 +19,13 @@ export function PageClient() {
 
   useEffect(() => {
     const fetchPublicToken = async () => {
-      const response = await fetch("/api/embed-token"); // TODO: add this endpoint
+      const response = await fetch("/api/embed-token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       const data = await response.json();
 
       setPublicToken(data.publicToken);
