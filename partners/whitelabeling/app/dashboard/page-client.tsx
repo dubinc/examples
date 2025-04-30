@@ -1,19 +1,18 @@
 "use client";
 
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DubEmbed } from "@dub/embed-react";
 
 export function PageClient() {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const [publicToken, setPublicToken] = useState("");
-
 
   useEffect(() => {
     if (status === "unauthenticated") {
-      router.push("/login");
+      router.push("/");
     }
   }, [status, router]);
 
@@ -25,6 +24,11 @@ export function PageClient() {
           "Content-Type": "application/json",
         },
       });
+
+      if (!response.ok) {
+        alert("Failed to fetch public token.");
+        return;
+      }
 
       const data = await response.json();
 
