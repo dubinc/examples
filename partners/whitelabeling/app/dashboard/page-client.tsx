@@ -2,13 +2,11 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { DubEmbed } from "@dub/embed-react";
+import { useEffect } from "react";
 
-export function PageClient() {
+export function ReferralEmbed({ publicToken }: { publicToken: string }) {
   const router = useRouter();
   const { status } = useSession();
-  const [publicToken, setPublicToken] = useState("");
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -16,31 +14,13 @@ export function PageClient() {
     }
   }, [status, router]);
 
-  useEffect(() => {
-    const fetchPublicToken = async () => {
-      const response = await fetch("/api/embed-token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  return (
+    <iframe
+      src={`https://app.dub.co/embed/referrals?token=${publicToken}`}
+      allow="clipboard-write"
+      className="h-screen w-full"
+    />
+  );
 
-      if (!response.ok) {
-        alert("Failed to fetch public token.");
-        return;
-      }
-
-      const data = await response.json();
-
-      setPublicToken(data.publicToken);
-    };
-
-    fetchPublicToken();
-  }, []);
-
-  if (!publicToken) {
-    return <div>Loading...</div>;
-  }
-
-  return <DubEmbed data="referrals" token={publicToken} />;
+  // return <DubEmbed data="referrals" token={publicToken} />;
 }
