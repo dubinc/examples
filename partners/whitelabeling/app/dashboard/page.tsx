@@ -17,9 +17,6 @@ export default async function Dashboard() {
       token={publicToken}
       options={{
         theme: "system",
-        themeOptions: {
-          backgroundColor: "#0a0a0a",
-        },
       }}
     />
   );
