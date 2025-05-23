@@ -1,6 +1,7 @@
 # Dub Conversions Examples
 
-This repository contains examples of how to use Dub Conversions with different frameworks and platforms.
+This repository contains examples of how to use Dub to track lead and sale conversion events with different platforms
 
-- [Next.js + Clerk](./clerk/README.md)
-- [Next.js + Stripe](./stripe/README.md)
+- [Tracking Cal.com booking events](./cal/README.md)
+- [Tracking Clerk signup events](./clerk/README.md)
+- [Tracking Stripe payment events](./stripe/README.md)
