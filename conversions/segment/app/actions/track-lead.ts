@@ -13,6 +13,13 @@ export async function trackLead({
   email?: string | null;
   avatar?: string | null;
 }) {
+  console.log("Tracking lead", {
+    id,
+    name,
+    email,
+    avatar,
+  });
+
   segment.track({
     userId: id,
     event: "Sign Up",
@@ -23,5 +30,19 @@ export async function trackLead({
         avatar,
       },
     },
+    integrations: {
+      All: true,
+    },
+  });
+}
+
+export async function handleSignup() {
+  const id = crypto.randomUUID();
+
+  await trackLead({
+    id,
+    name: "John Doe",
+    email: "john.doe@example.com",
+    avatar: "https://example.com/avatar.png",
   });
 }
