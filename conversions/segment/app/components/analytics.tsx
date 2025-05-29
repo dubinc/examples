@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { analytics } from "../lib/segment";
+import { analytics } from "../lib/segment-client";
 
 export function SegmentAnalytics() {
   const pathname = usePathname();
