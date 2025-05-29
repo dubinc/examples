@@ -1,4 +1,4 @@
-import { handleSignup } from "./actions/track-lead";
+import { handleSignup } from "../actions/track-lead";
 
 export default function Home() {
   return (
