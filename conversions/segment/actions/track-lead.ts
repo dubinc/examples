@@ -13,13 +13,6 @@ export async function trackLead({
   email?: string | null;
   avatar?: string | null;
 }) {
-  console.log("Tracking lead", {
-    id,
-    name,
-    email,
-    avatar,
-  });
-
   segment.track({
     userId: id,
     event: "Sign Up",
