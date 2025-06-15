@@ -5,3 +5,4 @@ This repository contains examples of how to use Dub to track lead and sale conve
 - [Tracking Cal.com booking events](./cal)
 - [Tracking Clerk signup events](./clerk)
 - [Tracking Stripe payment events](./stripe)
+- [Tracking lead and sale events with Segment](./segment)
