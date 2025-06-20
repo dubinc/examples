@@ -7,7 +7,7 @@ Useful for tracking SaaS enterprise leads or agency meeting bookings.
 ## Installation steps:
 
 1. Install the [Dub app from the Cal.com App Store](https://app.cal.com/apps/dub).
-2. Set up the [`@dub/analytics` client-side script](https://dub.co/docs/sdks/client-side/introduction) on your site, and add `app.cal.com` to your [outbound domains](https://dub.co/docs/sdks/client-side/features/cross-domain-tracking).
+2. Set up the [`@dub/analytics` client-side script](https://dub.co/docs/sdks/client-side/introduction) on your site, and add both `app.cal.com` and `cal.com` to your [outbound domains](https://dub.co/docs/sdks/client-side/features/cross-domain-tracking).
 3. Once a booking event occurs, the booker's details will automatically be tracked as a [lead event](https://dub.co/docs/conversions/leads/introduction) on Dub.
 
 > [!TIP]

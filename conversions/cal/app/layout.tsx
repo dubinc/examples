@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <DubAnalytics
           domainsConfig={{
-            outbound: "app.cal.com",
+            outbound: ["app.cal.com", "cal.com"],
           }}
         />
         {children}
