@@ -30,7 +30,6 @@ async function createPublicToken() {
   }
 
   const { publicToken } = await dub.embedTokens.referrals({
-    programId: process.env.DUB_PROGRAM_ID as string,
     partner: {
       tenantId: session.user.id,
       name: session.user.name || "",
