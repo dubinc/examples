@@ -12,8 +12,28 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
+  const linking = {
+    prefixes: ['https://kirandev.com'],
+    config: {
+      screens: {
+        ProductList: {
+          path: 'products',
+          parse: {
+            // No parsing needed for product list
+          },
+        },
+        ProductDetail: {
+          path: 'products/:productId',
+          parse: {
+            productId: (productId: string) => parseInt(productId, 10),
+          },
+        },
+      },
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator initialRouteName="ProductList">
         <Stack.Screen
           name="ProductList"
