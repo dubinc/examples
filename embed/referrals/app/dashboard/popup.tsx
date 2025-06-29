@@ -1,11 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { useFormStatus } from "react-dom";
 import { trackConversion } from "./track-conversion";
+import Cookies from "js-cookie";
 
-export function PopupClient() {
+export function Popup() {
+  const [showPopup, setShowPopup] = useState(false);
+  useEffect(() => {
+    const dubId = Cookies.get("dub_id");
+    if (dubId) {
+      setShowPopup(true);
+    }
+  }, [showPopup]);
+
+  if (!showPopup) {
+    return null;
+  }
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-2 duration-300">
+    <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-2 duration-200 fade-in-0 zoom-in-95">
       <div className="relative max-w-sm">
         {/* Background blur */}
         <div className="absolute inset-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-2xl border border-black/20 dark:border-white/20 shadow-2xl" />
