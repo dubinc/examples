@@ -2,7 +2,9 @@ import { dub } from "@/lib/dub";
 import { DubEmbed } from "@dub/embed-react";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
+import { PopupClient } from "./popup";
+import { Suspense } from "react";
 
 export default async function Dashboard() {
   const publicToken = await createPublicToken();
@@ -12,13 +14,18 @@ export default async function Dashboard() {
   }
 
   return (
-    <DubEmbed
-      data="referrals"
-      token={publicToken}
-      options={{
-        theme: "system",
-      }}
-    />
+    <>
+      <DubEmbed
+        data="referrals"
+        token={publicToken}
+        options={{
+          theme: "system",
+        }}
+      />
+      <Suspense fallback={null}>
+        <Popup />
+      </Suspense>
+    </>
   );
 }
 
@@ -39,4 +46,15 @@ async function createPublicToken() {
   });
 
   return publicToken;
+}
+
+async function Popup() {
+  const cookieStore = await cookies();
+  const dubId = cookieStore.get("dub_id")?.value;
+
+  if (!dubId) {
+    return null;
+  }
+
+  return <PopupClient />;
 }
