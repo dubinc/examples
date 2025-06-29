@@ -3,10 +3,23 @@ import { SignupButton } from "./signup-button";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-export default async function Home() {
+export default async function Dashboard({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const searchParamsObject = await searchParams;
+  const searchParamsString = Object.fromEntries(
+    Object.entries(searchParamsObject).map(([key, value]) => [
+      key,
+      String(value),
+    ])
+  );
   const session = await auth.api.getSession({ headers: await headers() });
   if (session) {
-    redirect("/dashboard");
+    redirect(
+      `/dashboard?${new URLSearchParams(searchParamsString).toString()}`
+    );
   }
 
   return (
