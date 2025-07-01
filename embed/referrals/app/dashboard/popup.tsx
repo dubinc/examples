@@ -75,7 +75,7 @@ function FormButton({disabled}: {disabled: boolean}) {
         [
           "flex items-center justify-center w-full h-8 px-3 transition-colors duration-150",
           "rounded-lg text-sm font-medium cursor-pointer bg-foreground text-background hover:bg-foreground/90",
-          "disabled:bg-foreground/10 disabled:text-foreground/30 disabled:cursor-not-allowed",
+          "disabled:bg-foreground/5 dark:disabled:bg-foreground/10 disabled:border-foreground/5 disabled:border disabled:text-foreground/40 disabled:cursor-not-allowed",
         ].join(" ")
       }
     >
