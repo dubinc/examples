@@ -16,7 +16,7 @@ export default async function Dashboard() {
 
   return (
     <>
-      <div className="w-full mx-auto max-w-screen-lg grid grid-cols-1 p-9 sm:grid-cols-[max-content_minmax(0,1fr)] gap-12">
+      <div className="w-full mx-auto max-w-screen-lg grid grid-cols-1 p-2 sm:p-9 sm:grid-cols-[max-content_minmax(0,1fr)] gap-12">
         <SideNav />
         <div className="bg-background rounded-xl border border-foreground/10">
           <DubEmbed
