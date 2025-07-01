@@ -18,7 +18,7 @@ export function Popup() {
 
   useEffect(() => {
     const dubId = Cookies.get("dub_id");
-    if (true)
+    if (dubId)
       setIsReady(true);
   }, []);
 
