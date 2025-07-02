@@ -1,8 +1,8 @@
-import { CircleCheck } from "../icons/nucleo/circle-check"
-import { Folder } from "../icons/nucleo/folder"
-import { Gift } from "../icons/nucleo/gift"
-import { House } from "../icons/nucleo/house"
-import { Sliders } from "../icons/nucleo/sliders"
+import { CircleCheck } from "../../ui/icons/nucleo/circle-check"
+import { Folder } from "../../ui/icons/nucleo/folder"
+import { Gift } from "../../ui/icons/nucleo/gift"
+import { House } from "../../ui/icons/nucleo/house"
+import { Sliders } from "../../ui/icons/nucleo/sliders"
 import { AcmeLogo } from "./acme-logo"
 
 

@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { trackConversion } from "./track-conversion";
 import Cookies from "js-cookie";
-import { CircleDotted } from "../icons/nucleo/circle-dotted";
-import { CircleCheckFill } from "../icons/nucleo/circle-check-fill";
+import { CircleDotted } from "../../ui/icons/nucleo/circle-dotted";
+import { CircleCheckFill } from "../../ui/icons/nucleo/circle-check-fill";
 
 const STEPS = [
   "Copy your referral link",
