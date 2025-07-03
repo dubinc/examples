@@ -21,7 +21,7 @@ This project was bootstrapped using [`@react-native-community/cli`](https://gith
 
 ## Demo
 
-![Android Demo](android-demo.gif)
+<img src="android-demo.gif" alt="Android Demo" width="300" height="200" />
 
 # Getting Started
 
