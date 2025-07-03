@@ -3,6 +3,9 @@ import { DubEmbed } from "@dub/embed-react";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import { Suspense } from "react";
+import { Popup } from "./popup";
+import { SideNav } from "./side-nav";
 
 export default async function Dashboard() {
   const publicToken = await createPublicToken();
@@ -12,13 +15,23 @@ export default async function Dashboard() {
   }
 
   return (
-    <DubEmbed
-      data="referrals"
-      token={publicToken}
-      options={{
-        theme: "system",
-      }}
-    />
+    <>
+      <div className="w-full mx-auto max-w-screen-lg grid grid-cols-1 p-2 sm:p-9 sm:grid-cols-[max-content_minmax(0,1fr)] gap-12">
+        <SideNav />
+        <div className="bg-background rounded-xl border border-foreground/10">
+          <DubEmbed
+            data="referrals"
+            token={publicToken}
+            options={{
+              theme: "system",
+            }}
+          />
+        </div>
+      </div>
+      <Suspense fallback={null}>
+        <Popup />
+      </Suspense>
+    </>
   );
 }
 

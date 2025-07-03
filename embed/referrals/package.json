@@ -10,13 +10,18 @@
   },
   "dependencies": {
     "@auth/core": "^0.34.2",
-    "@dub/embed-react": "^0.0.14",
+    "@dub/analytics": "^0.0.27",
+    "@dub/embed-react": "^0.0.15",
+    "@types/js-cookie": "^3.0.6",
     "better-auth": "^1.2.8",
     "dub": "^0.63.6",
+    "js-cookie": "^3.0.5",
     "next": "15.3.1",
     "pg": "^8.16.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss-animate": "^1.0.7",
+    "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
