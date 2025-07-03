@@ -1,97 +1,131 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Deep Link Demo
+
+This is a [**React Native**](https://reactnative.dev) demo application that showcases **deep linking** functionality with a product catalog interface. The app demonstrates how to implement URL-based navigation that allows users to directly access specific screens and content through external links.
+
+## Features
+
+- **Deep Link Navigation**: Navigate directly to product details using URLs like `https://example.com/products/1`
+- **Product Catalog**: Browse products fetched from a mock API (FakeStoreAPI)
+- **Product Details**: View detailed product information with images, pricing, and descriptions
+- **URL Parsing**: Automatic parsing of URL parameters to navigate to specific products
+- **Cross-Platform**: Works on both iOS and Android with proper deep link handling
+
+## Deep Link Examples
+
+- Product List: `https://example.com/products`
+- Product Detail: `https://example.com/products/1` (where `1` is the product ID)
+
+This project was bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+> **Note**: Make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/environment-setup) guide before proceeding.
 
-## Step 1: Start Metro
+## Prerequisites
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Before running this project, ensure you have:
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- Node.js (version 18 or higher)
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
+- CocoaPods (for iOS dependencies)
+
+## Running the Project
+
+### Step 1: Install Dependencies
+
+First, install the project dependencies:
 
 ```sh
-# Using npm
+npm install
+```
+
+### Step 2: Start Metro
+
+Start the Metro bundler (JavaScript build tool):
+
+```sh
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
+Keep Metro running in a separate terminal window while you build and run the app.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Running on Android
 
-### Android
+### Prerequisites
+
+- Android Studio installed with Android SDK
+- Android emulator set up or physical device connected
+- ANDROID_HOME environment variable configured
+
+### Steps
+
+1. **Start Metro** (if not already running):
 
 ```sh
-# Using npm
+npm start
+```
+
+2. **Run the Android app**:
+
+```sh
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+3. **Alternative**: Open Android Studio and run from there:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+- Open the `android/` folder in Android Studio
+- Build and run the project
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### Testing Deep Links on Android
+
+To test deep links on Android:
+
+- Use ADB: `adb shell am start -W -a android.intent.action.VIEW -d "https://example.com/products/1" com.deeplink`
+- Or use Android Studio's deep link testing feature
+
+## Running on iOS
+
+### Prerequisites
+
+- macOS with Xcode installed
+- iOS Simulator or physical iOS device
+- CocoaPods installed
+
+### Steps
+
+1. **Install CocoaPods dependencies** (first time only):
 
 ```sh
+cd ios
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
+cd ..
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+2. **Start Metro** (if not already running):
 
 ```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npm start
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+3. **Run the iOS app**:
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```sh
+npm run ios
+```
 
-## Step 3: Modify your app
+4. **Alternative**: Open Xcode and run from there:
 
-Now that you have successfully run the app, let's make changes!
+- Open `ios/deeplink.xcworkspace` in Xcode
+- Select your target device/simulator
+- Build and run the project
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Testing Deep Links on iOS
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+To test deep links on iOS:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+To test your universal links behavior, paste a link into your Notes app and long-press it (iOS) or control-click it (macOS) to see your options for following the link. If universal links have been configured correctly, the option to open in your app and in the web browser will both show up.
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+> Entering the URL directly into the web browser’s address bar will never open the app, as this is direct navigation within the web browser. As long as the user is on your domain after navigating there directly, your site will show a banner to open your app.
