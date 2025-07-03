@@ -19,9 +19,10 @@ This project was bootstrapped using [`@react-native-community/cli`](https://gith
 - Product List: `https://example.com/products`
 - Product Detail: `https://example.com/products/1` (where `1` is the product ID)
 
-## Demo
+## Android Demo
 
-<img src="android-demo.gif" alt="Android Demo" width="300" />
+<img src="android-demo.gif" alt="Android deep link demo" width="300" />
+<!-- <img src="ios-demo.gif" alt="iOS deep link demo" width="300" /> -->
 
 # Getting Started
 
