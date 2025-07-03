@@ -1,11 +1,15 @@
 # React Native Deep Link Demo
 
-This is a [**React Native**](https://reactnative.dev) demo application that showcases **deep linking** functionality with a product catalog interface. The app demonstrates how to implement URL-based navigation that allows users to directly access specific screens and content through external links.
+This is a [**React Native**](https://reactnative.dev) demo application that showcases **deep linking** functionality with a product catalog UI.
+
+The app demonstrates how to implement deep linking that allows users to directly access specific screens and content through **universal links**.
+
+This project was bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 ## Features
 
 - **Deep Link Navigation**: Navigate directly to product details using URLs like `https://example.com/products/1`
-- **Product Catalog**: Browse products fetched from a mock API (FakeStoreAPI)
+- **Product Catalog**: Browse products fetched from a mock API
 - **Product Details**: View detailed product information with images, pricing, and descriptions
 - **URL Parsing**: Automatic parsing of URL parameters to navigate to specific products
 - **Cross-Platform**: Works on both iOS and Android with proper deep link handling
@@ -15,11 +19,9 @@ This is a [**React Native**](https://reactnative.dev) demo application that show
 - Product List: `https://example.com/products`
 - Product Detail: `https://example.com/products/1` (where `1` is the product ID)
 
-This project was bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
 # Getting Started
 
-> **Note**: Make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/environment-setup) guide before proceeding.
+Make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/environment-setup) guide before proceeding.
 
 ## Prerequisites
 
