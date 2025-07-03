@@ -35,7 +35,7 @@ Before running this project, ensure you have:
 
 ## Running the Project
 
-### Step 1: Install Dependencies
+### Install Dependencies
 
 First, install the project dependencies:
 
@@ -43,7 +43,7 @@ First, install the project dependencies:
 npm install
 ```
 
-### Step 2: Start Metro
+### Start Metro
 
 Start the Metro bundler (JavaScript build tool):
 
@@ -130,4 +130,4 @@ To test deep links on iOS:
 
 To test your universal links behavior, paste a link into your Notes app and long-press it (iOS) or control-click it (macOS) to see your options for following the link. If universal links have been configured correctly, the option to open in your app and in the web browser will both show up.
 
-> Entering the URL directly into the web browser’s address bar will never open the app, as this is direct navigation within the web browser. As long as the user is on your domain after navigating there directly, your site will show a banner to open your app.
+> **IMPORTANT**: Entering the URL directly into the web browser’s address bar will never open the app, as this is direct navigation within the web browser. As long as the user is on your domain after navigating there directly, your site will show a banner to open your app.
