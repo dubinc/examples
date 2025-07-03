@@ -19,6 +19,10 @@ This project was bootstrapped using [`@react-native-community/cli`](https://gith
 - Product List: `https://example.com/products`
 - Product Detail: `https://example.com/products/1` (where `1` is the product ID)
 
+## Demo
+
+![Android Demo](android-demo.webm)
+
 # Getting Started
 
 Make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/environment-setup) guide before proceeding.
