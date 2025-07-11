@@ -22,7 +22,7 @@ export async function trackConversion() {
   const lead = await dub.track.lead({
     clickId: dubId,
     eventName: "Sign up",
-    externalId: randomId,
+    customerExternalId: randomId,
     customerName: randomName,
     customerEmail: randomEmail,
     mode: "wait",
@@ -34,7 +34,7 @@ export async function trackConversion() {
   ];
 
   const sale = await dub.track.sale({
-    externalId: randomId,
+    customerExternalId: randomId,
     amount: randomSaleAmount,
     currency: "usd",
     paymentProcessor: "stripe",

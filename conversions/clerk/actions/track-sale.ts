@@ -18,7 +18,7 @@ export async function trackSale(
   try {
     // Send lead event to Dub
     await dub.track.sale({
-      externalId: userId,
+      customerExternalId: userId,
       eventName: "Sale",
       amount: Math.floor(amount * 100),
       paymentProcessor: "stripe",
