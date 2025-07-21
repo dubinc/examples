@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics as DubAnalytics } from "@dub/analytics/react";
 import { DubWordmark } from "./dashboard/dub-wordmark";
+import { GithubLogo } from "./dashboard/github-logo";
 
 const inter = Inter({ subsets: ["latin"] });
 const satoshi = localFont({
@@ -57,24 +58,30 @@ export default function RootLayout({
           <div className="h-16 flex items-center justify-between px-6">
             <div className="flex items-center gap-2">
               <DubWordmark className="h-6" />
-              <div role="presentation" className="h-3 w-0.5 bg-foreground/10 hidden sm:block"/>
-              <span className="text-foreground/60 font-bold font-display hidden sm:block">Partners Referrals Embed Demo</span>
+              <div
+                role="presentation"
+                className="h-3 w-0.5 bg-foreground/10 hidden sm:block"
+              />
+              <span className="text-foreground/60 font-bold font-display hidden sm:block">
+                Partners Referrals Embed Demo
+              </span>
             </div>
             <div className="flex items-center gap-2">
-              <a href="https://dub.co/docs/partners/white-labeling"
+              <a
+                href="https://git.new/referrals"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center px-3 h-8 font-medium border text-foreground/80 border-foreground/20 rounded-lg text-sm hover:bg-foreground/[0.02] transition-colors duration-150"
+                className="flex items-center gap-2 px-3 h-8 font-medium border text-foreground/80 border-foreground/20 rounded-lg text-sm hover:bg-foreground/[0.02] transition-colors duration-150"
               >
-                Read the docs
+                <GithubLogo className="w-4 h-4" /> Source code
               </a>
-
-              <a href="https://dub.co/partners"
+              <a
+                href="https://dub.co/docs/partners/white-labeling"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-3 h-8 font-medium border text-background border-background/20 bg-foreground rounded-lg text-sm hover:bg-foreground/90 transition-colors duration-150"
               >
-                Join the beta
+                Read the docs
               </a>
             </div>
           </div>
