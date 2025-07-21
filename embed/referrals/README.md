@@ -1,9 +1,10 @@
-## Dub Referrals Embed Example App
+## Dub Partners Referrals Embed Demo
 
-In this app, we're using the following technologies:
+> [!TIP]
+> Live demo link: [acme.dub.sh](https://acme.dub.sh/)
 
-- [Next.js](https://nextjs.org)
-- [BetterAuth](https://betterauth.com) for authentication
-- [Dub Partners](https://dub.co/partners) for referral tracking + [whitelabeling](https://dub.co/docs/partners/white-labeling)
+This is an example app of how you can use the [Dub Partners Referrals Embed](https://dub.co/docs/partners/white-labeling) to build a whitelabeled referral dashboard inside your app.
 
-[Read the full guide](https://dub.co/docs/partners/white-labeling).
+Read the full guide: https://dub.co/docs/partners/white-labeling
+
+<img width="3016" height="1504" alt="CleanShot 2025-07-20 at 17 35 05@2x" src="https://github.com/user-attachments/assets/82996f16-1649-4a98-b7c5-52753943a213" />
