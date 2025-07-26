@@ -18,6 +18,7 @@ const satoshi = localFont({
 const title = "Acme, Inc. | Dub Partners Referral Embed Demo";
 const description =
   "Acme, Inc. is a demo application for Dub Partners' Whitelabeled Referrals Embed feature.";
+const image = "https://assets.dub.co/misc/acme-referrals-embed-og.png";
 
 export const metadata: Metadata = {
   title,
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "https://assets.dub.co/misc/acme-referrals-embed-og.png",
+        url: image,
         width: 1200,
         height: 630,
       },
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["https://assets.dub.co/misc/acme-referrals-embed-og.png"],
+    images: [image],
   },
 };
 
