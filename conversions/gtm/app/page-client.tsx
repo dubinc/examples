@@ -10,24 +10,36 @@ export function PageClient() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        gap: "1rem",
       }}
     >
       <button
         className="google-btn"
         onClick={() =>
           sendGTMEvent({
-            event: "dub_conversion",
-            customerExternalId: "3SDNAC0C1",
-            eventName: "Sign Up",
+            event: "Sign Up",
+            customerExternalId: "3SDNAC0C2",
             customerName: "John Doe",
             customerEmail: "john@example.com",
             customerAvatar: "https://example.com/avatar.jpg",
-            eventQuantity: 1,
           })
         }
-        aria-label="Send Google Tag Manager event"
+        aria-label="Track lead event"
       >
-        Send Event
+        Track Leads
+      </button>
+      <button
+        className="google-btn"
+        onClick={() =>
+          sendGTMEvent({
+            event: "Purchase",
+            customerExternalId: "3SDNAC0C2",
+            amount: 1000, // in cents
+          })
+        }
+        aria-label="Track sale event"
+      >
+        Track Sale
       </button>
     </div>
   );
