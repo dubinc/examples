@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dub/analytics": "^0.0.29",
     "@next/third-parties": "^15.4.6",
     "next": "15.4.6",
     "react": "19.1.0",

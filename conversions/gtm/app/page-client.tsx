@@ -15,28 +15,27 @@ export function PageClient() {
     >
       <button
         className="google-btn"
-        onClick={() =>
+        onClick={() => {
           sendGTMEvent({
             event: "Sign Up",
-            customerExternalId: "3SDNAC0C2",
-            customerName: "John Doe",
-            customerEmail: "john@example.com",
-            customerAvatar: "https://example.com/avatar.jpg",
-          })
-        }
+            customerExternalId: "1bc8c4f8a85096e5b040ae15d0a279e3",
+          });
+          window.alert("Lead tracked");
+        }}
         aria-label="Track lead event"
       >
-        Track Leads
+        Track Lead
       </button>
       <button
         className="google-btn"
-        onClick={() =>
+        onClick={() => {
           sendGTMEvent({
             event: "Purchase",
-            customerExternalId: "3SDNAC0C2",
+            customerExternalId: "1bc8c4f8a85096e5b040ae15d0a279e3",
             amount: 1000, // in cents
-          })
-        }
+          });
+          window.alert("Sale tracked");
+        }}
         aria-label="Track sale event"
       >
         Track Sale

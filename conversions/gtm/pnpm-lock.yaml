@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@dub/analytics':
+        specifier: ^0.0.29
+        version: 0.0.29
       '@next/third-parties':
         specifier: ^15.4.6
         version: 15.4.6(next@15.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
@@ -44,6 +47,9 @@ importers:
         version: 5.9.2
 
 packages:
+
+  '@dub/analytics@0.0.29':
+    resolution: {integrity: sha512-/h6KyOdhCFy+pHEOQB/82uCCLU4x9PPtQuw6TZ9iqgaDZXQjL0+M6LZ0B0k4vIQkuLMyRwcvx4Mjl1YPMqoADw==}
 
   '@emnapi/core@1.4.5':
     resolution: {integrity: sha512-XsLw1dEOpkSX/WucdqUhPWP7hDxSvZiY+fsUC14h+FtQ2Ifni4znbBt8punRX+Uj2JG/uDb8nEHVKvrVlvdZ5Q==}
@@ -1380,6 +1386,9 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -1577,6 +1586,10 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
+
+  '@dub/analytics@0.0.29':
+    dependencies:
+      server-only: 0.0.1
 
   '@emnapi/core@1.4.5':
     dependencies:
@@ -3057,6 +3070,8 @@ snapshots:
   semver@6.3.1: {}
 
   semver@7.7.2: {}
+
+  server-only@0.0.1: {}
 
   set-function-length@1.2.2:
     dependencies:
