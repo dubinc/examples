@@ -18,7 +18,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-TFXVTRHD" />
+      <GoogleTagManager gtmId="GTM-XXXX" />
       <body>{children}</body>
     </html>
   );
