@@ -40,3 +40,40 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Google-style primary button */
+.google-btn {
+  background-color: #1a73e8; /* Google blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px; /* slightly big */
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.02s ease;
+}
+
+.google-btn:hover {
+  background-color: #1765cc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.google-btn:active {
+  background-color: #1558b0;
+  transform: translateY(0.5px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.google-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.3);
+}
+
+.google-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
