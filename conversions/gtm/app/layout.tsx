@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-TFXVTRHD" />
+      <GoogleTagManager gtmId="GTM-xxx" />
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
