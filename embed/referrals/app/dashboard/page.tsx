@@ -48,6 +48,7 @@ async function createPublicToken() {
       name: session.user.name || "",
       email: session.user.email || "",
       image: session.user.image || "",
+      groupId: "grp_1K3T275JN4PW5ZJQD141DDSDA",
     },
   });
 

@@ -14,7 +14,7 @@
     "@dub/embed-react": "^0.0.15",
     "@types/js-cookie": "^3.0.6",
     "better-auth": "^1.2.8",
-    "dub": "^0.64.1",
+    "dub": "^0.66.1",
     "js-cookie": "^3.0.5",
     "next": "15.3.1",
     "pg": "^8.16.0",
