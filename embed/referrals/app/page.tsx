@@ -75,7 +75,7 @@ export default async function Dashboard({
         </div>
         <div className="p-8">
           <h1 className="text-lg font-semibold text-foreground">
-            Dub Partners Referrals Embed Demo
+            Dub Embedded Referral Dashboard Demo
           </h1>
           <p className="mt-2 text-foreground/70 text-sm leading-normal">
             Explore the Dub Partners demo. Click the event triggers, and explore
