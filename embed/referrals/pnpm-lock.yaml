@@ -24,8 +24,8 @@ importers:
         specifier: ^1.2.8
         version: 1.2.8
       dub:
-        specifier: ^0.66.1
-        version: 0.66.1
+        specifier: ^0.66.3
+        version: 0.66.3
       js-cookie:
         specifier: ^3.0.5
         version: 3.0.5
@@ -1133,8 +1133,8 @@ packages:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
 
-  dub@0.66.1:
-    resolution: {integrity: sha512-a3XlK1R7Pnfj33sB7Hpcl0lidrX3Rq46ZTQN48eCoMj+2QIumWoOZsEnAIP6qfEtvGuNCaDfCzfMh0Im2zyo5g==}
+  dub@0.66.3:
+    resolution: {integrity: sha512-Z25iClIGwvYYrE0D5WnuPZrcN1k683CLJ9Mk97xXPPPliigXCKumtDByr7CjsCStPRoSG66OSqC9w3MK+UT7iA==}
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -3230,7 +3230,7 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  dub@0.66.1:
+  dub@0.66.3:
     dependencies:
       zod: 3.24.3
 

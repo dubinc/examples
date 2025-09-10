@@ -16,7 +16,7 @@
     "@radix-ui/react-tooltip": "^1.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "dub": "^0.46.15",
+    "dub": "^0.66.3",
     "nanoid": "^5.0.7",
     "next": "14.2.5",
     "next-safe-action": "^7.6.2",
