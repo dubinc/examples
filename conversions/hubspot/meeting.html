@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <h1>Contact us</h1>
+
+    <!-- Load Dub analytics script -->
+    <script
+      src="https://www.dubcdn.com/analytics/script.js"
+      defer
+      data-domains='{"refer":"acme.link"}'
+    ></script>
+
+    <div
+      class="meetings-iframe-container"
+      data-src="https://meetings.hubspot.com/kiran60?embed=true"
+    ></div>
+
+    <!-- Load Meetings Embed Script -->
+    <script
+      type="text/javascript"
+      src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+    ></script>
+
+    <script>
+      // Read cookie value
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+
+        if (parts.length === 2) {
+          return parts.pop().split(";").shift();
+        }
+
+        return null;
+      }
+    </script>
+  </body>
+</html>

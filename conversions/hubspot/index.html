@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <h1>Contact us</h1>
+    <!-- Load HubSpot forms library -->
+    <script
+      charset="utf-8"
+      type="text/javascript"
+      src="//js.hsforms.net/forms/embed/v2.js"
+    ></script>
+
+    <!-- Load Dub analytics script -->
+    <script
+      src="https://www.dubcdn.com/analytics/script.js"
+      defer
+      data-domains='{"refer":"acme.link"}'
+    ></script>
+
+    <div id="hs-form-wrapper">Loading hubspot form...</div>
+
+    <script>
+      // Read cookie value
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+
+        if (parts.length === 2) {
+          return parts.pop().split(";").shift();
+        }
+
+        return null;
+      }
+
+      // Create HubSpot form
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "47839295",
+        formId: "0042a4a5-6252-43b6-8b95-0468ef5b3a4f",
+        target: "#hs-form-wrapper",
+        onBeforeFormSubmit: function ($form) {
+          console.log("onBeforeFormSubmit", $form)
+          const dubId = getCookie("dub_id");
+          console.log({dubId, form: $form.find('input[name="dubId"]')})
+
+          if (dubId) {
+            $form.find('input[name="dubId"]').val(dubId);
+          }
+        },
+      });
+    </script>
+  </body>
+</html>
