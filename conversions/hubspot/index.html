@@ -21,7 +21,7 @@
       data-domains='{"refer":"acme.link"}'
     ></script>
 
-    <div id="hs-form-wrapper">Loading hubspot form...</div>
+    <div id="hs-form-wrapper"></div>
 
     <script>
       // Read cookie value
@@ -43,9 +43,7 @@
         formId: "0042a4a5-6252-43b6-8b95-0468ef5b3a4f",
         target: "#hs-form-wrapper",
         onBeforeFormSubmit: function ($form) {
-          console.log("onBeforeFormSubmit", $form)
           const dubId = getCookie("dub_id");
-          console.log({dubId, form: $form.find('input[name="dubId"]')})
 
           if (dubId) {
             $form.find('input[name="dubId"]').val(dubId);
