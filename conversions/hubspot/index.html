@@ -8,11 +8,7 @@
   <body>
     <h1>Contact us</h1>
     <!-- Load HubSpot forms library -->
-    <script
-      charset="utf-8"
-      type="text/javascript"
-      src="//js.hsforms.net/forms/embed/v2.js"
-    ></script>
+    <script src="https://js.hsforms.net/forms/embed/47839131.js" defer></script>
 
     <!-- Load Dub analytics script -->
     <script
@@ -21,7 +17,12 @@
       data-domains='{"refer":"acme.link"}'
     ></script>
 
-    <div id="hs-form-wrapper"></div>
+    <div
+      class="hs-form-frame"
+      data-region="na1"
+      data-form-id="07b7409d-cf6b-4d9f-9926-76d55b591e88"
+      data-portal-id="47839131"
+    ></div>
 
     <script>
       // Read cookie value
@@ -36,19 +37,18 @@
         return null;
       }
 
-      // Create HubSpot form
-      hbspt.forms.create({
-        region: "na1",
-        portalId: "47839295",
-        formId: "0042a4a5-6252-43b6-8b95-0468ef5b3a4f",
-        target: "#hs-form-wrapper",
-        onBeforeFormSubmit: function ($form) {
-          const dubId = getCookie("dub_id");
+      // Listen for the form ready event
+      window.addEventListener("hs-form-event:on-ready", (event) => {
+        const clickId = getCookie("dub_id");
 
-          if (dubId) {
-            $form.find('input[name="dubId"]').val(dubId);
-          }
-        },
+        if (!clickId) {
+          console.debug("clickId not found. Skipping lead tracking.");
+          return;
+        }
+
+        // Add the clickId to the form
+        // Note: Make sure you have a hidden field with connected property "dub_id"
+        HubSpotFormsV4.getForms()[0].setFieldValue("0-1/dub_id", clickId);
       });
     </script>
   </body>
