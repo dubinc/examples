@@ -11,20 +11,25 @@ Our collection of examples showcases the power of Dub, an open-source link manag
 
 ## Examples
 
+
+### Languages / Frameworks
 - [TypeScript](/typescript)
-- [Next](/typescript/next)
-- [Express](/typescript/express)
-- [Nuxt](/typescript/nuxt)
-- [Remix](/typescript/remix)
+  - [Next](/typescript/next)
+  - [Express](/typescript/express)
+  - [Nuxt](/typescript/nuxt)
+  - [Remix](/typescript/remix)
 - [Go](/go)
 - [Python](/python)
-- [Flask](/python/flask)
-- [Django](/python/django)
+  - [Flask](/python/flask)
+  - [Django](/python/django)
 - [Ruby](/ruby)
-- [Rails](/ruby/rails/example)
-- [Sinatra](/ruby/sinatra)
+  - [Rails](/ruby/rails/example)
+  - [Sinatra](/ruby/sinatra)
+
+### Topics
 - [OAuth Integration](/oauth)
 - [Conversions](/conversions)
+- [Deep Links](/deeplink)
 
 ## Read the Docs
 
