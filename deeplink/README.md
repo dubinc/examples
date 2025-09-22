@@ -1,4 +1,4 @@
-# Dub Conversions Examples
+# Dub Deep Link Examples
 
 This repository contains examples of how to use Dub to deep links with different platforms
 
