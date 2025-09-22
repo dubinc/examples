@@ -1,0 +1,15 @@
+{
+  "originHash" : "072184640fb7277b3b6fcbba26bd68cfa8d5d520ef407cf9010809e4704b6155",
+  "pins" : [
+    {
+      "identity" : "dub-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dubinc/dub-ios.git",
+      "state" : {
+        "revision" : "81f41cff7a248fc6c80647a19a49b642b7e3bbd5",
+        "version" : "0.1.1"
+      }
+    }
+  ],
+  "version" : 3
+}
