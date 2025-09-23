@@ -1,14 +1,17 @@
-# Dub Conversions with UIKit
+# Conversion tracking with UIKit and Dub
 
 ## Overview
-The Dub Conversions Example is a product storefront built with the [DummyJSON
-](https://dummyjson.com/) API. It shows how to handle deep links / deferred deep links, track lead events, and track sale events.
+
+This UIKit project is a product storefront built with the [DummyJSON
+](https://dummyjson.com/) API. It shows how to handle deep links / deferred deep links and conversion tracking with Dub.
+
+Read the full guide here: https://dub.co/docs/concepts/deep-links/attribution
 
 ## Getting Started
 
 ### Prerequisites
 
-Before running, you must replace `DUB_PUBLISHABLE_KEY` and `DUB_DOMAIN` in `AppDelegate.swift` with your publishable key and domain. You may generate a publishable key by navigating to your [workspace's Analytics settings page](https://app.dub.co/settings/analytics) and generating a new publishable key under the **Publishable Key** section. 
+Before running, you must replace `DUB_PUBLISHABLE_KEY` and `DUB_DOMAIN` in `AppDelegate.swift` with your publishable key and domain. You may generate a publishable key by navigating to your [workspace's Analytics settings page](https://app.dub.co/settings/analytics) and generating a new publishable key under the **Publishable Key** section.
 
 ## Contributing
 
