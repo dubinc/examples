@@ -1,11 +1,8 @@
-# Conversion tracking with React Native and Dub
+# Dub Deep Links with React Native
 
 ## Overview
 
-This React Native project is a product storefront built with the [DummyJSON
-](https://dummyjson.com/) API. It shows how to handle deep links / deferred deep links and conversion tracking with Dub.
-
-Read the full guide here: https://dub.co/docs/concepts/deep-links/attribution
+The Dub Deep Links with React Native is a simple project that shows how to handle deep links and deferred deep links in your mobile app using Typescript and React Native.
 
 # Getting Started
 
@@ -15,24 +12,7 @@ Read the full guide here: https://dub.co/docs/concepts/deep-links/attribution
 
 Before running, you must replace `DUB_PUBLISHABLE_KEY` and `DUB_DOMAIN` in `src/App.tsx` with your publishable key and domain. You may generate a publishable key by navigating to your [workspace's Analytics settings page](https://app.dub.co/settings/analytics) and generating a new publishable key under the **Publishable Key** section.
 
-## Step 1: Start Metro
-
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
-
-# OR using Pnpm
-pnpm start
-```
-
-## Step 2: Build and run your app
+## Step 1: Build and run your app
 
 With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
@@ -115,3 +95,18 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+## Contributing
+
+Thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody and are very appreciated.
+
+Please try to create bug reports that are:
+
+- _Reproducible._ Include steps to reproduce the problem.
+- _Specific._ Include as much detail as possible: which version, what environment, etc.
+- _Unique._ Do not duplicate existing opened issues.
+- _Scoped to a Single Bug._ One bug per report.
+
+## License
+
+MIT License
