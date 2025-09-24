@@ -41,7 +41,7 @@ export const signUpUser = actionClient
     await dub.track.lead({
       clickId,
       eventName: "Sign Up",
-      customerId: user.id,
+      customerExternalId: user.id,
       customerName: user.name,
       customerEmail: user.email,
     });
