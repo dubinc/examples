@@ -1,7 +1,10 @@
 # Dub Deep Links with SwiftUI
 
 ## Overview
-The Dub Deep Links with SwiftUI is a simple project that shows how to handle deep links and deferred deep links in your iOS app using Swift and SwiftUI.
+This project shows how to handle deep links and deferred deep links in your iOS app using Swift and SwiftUI 
+using the [Dub iOS SDK](https://dub.co/docs/sdks/client-side-mobile/installation-guides/swift).
+
+You can learn more about deep linking on dub [here]().
 
 ## Getting Started
 

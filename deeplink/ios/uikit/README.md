@@ -1,7 +1,8 @@
 # Dub Deep Links with UIKit
 
 ## Overview
-The Dub Deep Links with UIKit is a simple project that shows how to handle deep links and deferred deep links in your iOS app using Swift and UIKit.
+This project shows how to handle deep links and deferred deep links in your iOS app using Swift and UIKit 
+using the [Dub iOS SDK](https://dub.co/docs/sdks/client-side-mobile/installation-guides/swift).
 
 ## Getting Started
 
