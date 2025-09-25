@@ -3,7 +3,8 @@
 ## Overview
 
 This SwiftUI project is a product storefront built with the [DummyJSON
-](https://dummyjson.com/) API. It shows how to handle deep links / deferred deep links and conversion tracking with Dub.
+](https://dummyjson.com/) API. It shows how to handle deep links / deferred deep links
+and conversion tracking with the [Dub iOS SDK](https://dub.co/docs/sdks/client-side-mobile/installation-guides/swift).
 
 Read the full guide here: https://dub.co/docs/concepts/deep-links/attribution
 
