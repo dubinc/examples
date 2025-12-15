@@ -16,10 +16,10 @@
     "better-auth": "^1.2.8",
     "dub": "^0.66.3",
     "js-cookie": "^3.0.5",
-    "next": "15.3.1",
+    "next": "16.0.10",
     "pg": "^8.16.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "tailwindcss-animate": "^1.0.7",
     "unique-names-generator": "^4.7.1"
   },
