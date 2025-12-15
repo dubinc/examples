@@ -13,7 +13,7 @@
     "@dub/tailwind-config": "^0.0.4",
     "@dub/ui": "^0.1.42",
     "@dub/utils": "^0.0.63",
-    "dub": "^0.46.11",
+    "dub": "^0.69.0",
     "framer-motion": "^11.3.21",
     "iron-session": "^8.0.2",
     "lucide-react": "^0.424.0",

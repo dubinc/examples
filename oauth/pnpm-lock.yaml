@@ -21,8 +21,8 @@ importers:
         specifier: ^0.0.63
         version: 0.0.63(next@14.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       dub:
-        specifier: ^0.46.11
-        version: 0.46.11(zod@3.23.8)
+        specifier: ^0.69.0
+        version: 0.69.0
       framer-motion:
         specifier: ^11.3.21
         version: 11.3.21(@emotion/is-prop-valid@0.8.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1403,10 +1403,8 @@ packages:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
 
-  dub@0.46.11:
-    resolution: {integrity: sha512-mxD+EBJFwJdBk2wvvV4wBVbinOov1YxY4l7xxxwtTRtdnYoHafEygyqVCg923z4c3x7nA5AjtbX6eeBEUVdxPg==}
-    peerDependencies:
-      zod: '>= 3'
+  dub@0.69.0:
+    resolution: {integrity: sha512-2UotC3GARdPxtduY9/mD6fwxYhHIJnfXe1emLY96b1kj4iRcMRRerYbde1y5FPRsAJKBhuO2PaoT0TZNmn7gxA==}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -2741,8 +2739,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zod@4.2.0:
+    resolution: {integrity: sha512-Bd5fw9wlIhtqCCxotZgdTOMwGm1a0u75wARVEY9HMs1X17trvA/lMi4+MGK5EUfYkXVTbX8UDiDKW4OgzHVUZw==}
 
 snapshots:
 
@@ -4232,9 +4230,9 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  dub@0.46.11(zod@3.23.8):
+  dub@0.69.0:
     dependencies:
-      zod: 3.23.8
+      zod: 4.2.0
 
   eastasianwidth@0.2.0: {}
 
@@ -5719,4 +5717,4 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod@3.23.8: {}
+  zod@4.2.0: {}
