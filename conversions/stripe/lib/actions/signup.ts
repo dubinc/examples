@@ -71,7 +71,7 @@ export const signUpUser = actionClient
       },
       metadata: {
         dubClickId: clickId,
-        dubCustomerId: user.id,
+        dubCustomerExternalId: user.id,
       },
     });
 
