@@ -13,5 +13,11 @@
     "build": "next build",
     "start": "next start"
   },
-  "description": "Minimal Next.js GTM conversion tracking example"
+  "description": "Minimal Next.js GTM conversion tracking example",
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "6.0.2"
+  }
 }

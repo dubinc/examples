@@ -1,22 +1,22 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { useState } from "react";
 
 export default function CheckoutPage() {
   const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
 
   return (
     <main>
       <h1>Checkout</h1>
       <p>Use this page to test Dub sale tracking via GTM form submission.</p>
 
-      <form
-        id="checkout-form"
-        onSubmit={(event) => {
-          event.preventDefault();
-          setSubmitted(true);
-        }}
-      >
+      <form id="checkout-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="customer_id">Customer ID</label>
           <br />

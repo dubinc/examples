@@ -1,12 +1,18 @@
 import { GoogleTagManager } from "@next/third-parties/google";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Dub GTM Example",
   description: "Minimal Next.js example for Dub GTM integration",
 };
 
-export default function RootLayout({ children }) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
