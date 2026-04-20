@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <h1>Contact us</h1>
+
+    <!-- Load Dub analytics script -->
+    <script>
+      !(function (c, n) {
+        c[n] =
+          c[n] ||
+          function () {
+            (c[n].q = c[n].q || []).push(arguments);
+          };
+        ["trackClick", "trackLead", "trackSale"].forEach(
+          (t) => (c[n][t] = (...a) => c[n](t, ...a))
+        );
+        var s = document.createElement("script");
+        s.defer = 1;
+        s.src = "https://dubcdn.com/analytics/script.conversion-tracking.js";
+        s.setAttribute(
+          "data-publishable-key",
+          "dub_pk_tLnpzXvJAEik0UtzuzdmMJSn"
+        ); // Replace with your publishable key
+        s.setAttribute("data-domains", '{"refer":"dub.sh"}');
+        s.setAttribute("data-api-host", "http://localhost:8888/api");
+        document.head.appendChild(s);
+      })(window, "dubAnalytics");
+    </script>
+
+    <div
+      class="meetings-iframe-container"
+      data-src="https://meetings.hubspot.com/kiran61?embed=true"
+    ></div>
+
+    <!-- Load Meetings Embed Script -->
+    <script
+      type="text/javascript"
+      src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+    ></script>
+
+    <script>
+      // Read cookie value
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+
+        if (parts.length === 2) {
+          return parts.pop().split(";").shift();
+        }
+
+        return null;
+      }
+
+      // Listen for the message event
+      window.addEventListener("message", function (event) {
+        // Check if the message is from the scheduling widget
+        if (event.origin === "https://meetings.hubspot.com") {
+          const clickId = getCookie("dub_id");
+
+          if (!clickId) {
+            console.debug("clickId not found. Skipping lead tracking.");
+            return;
+          }
+
+          // Get the data from the event
+          const data = event.data;
+
+          if (data.meetingBookSucceeded) {
+            // Get the scheduled contact
+            const contact =
+              data.meetingsPayload.bookingResponse.postResponse.contact;
+
+            if (!contact) {
+              console.debug("contact not found. Skipping lead tracking.");
+              return;
+            }
+
+            console.debug("contact found", contact);
+
+            // Track the lead with the scheduled contact
+            const customerName = [contact.firstName, contact.lastName]
+              .filter(Boolean)
+              .join(" ");
+
+            dubAnalytics.trackLead({
+              clickId,
+              mode: "deferred",
+              eventName: "Meeting scheduled",
+              customerExternalId: contact.email,
+              customerName: customerName,
+              customerEmail: contact.email,
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
