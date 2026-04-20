@@ -1,0 +1,23 @@
+{
+  "name": "gtm",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@next/third-parties": "15.4.6",
+    "next": "^15.4.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "description": "Minimal Next.js GTM conversion tracking example",
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "6.0.2"
+  }
+}

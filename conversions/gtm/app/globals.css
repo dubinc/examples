@@ -1,0 +1,13 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+main {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 16px;
+  line-height: 1.5;
+}

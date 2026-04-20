@@ -12,8 +12,8 @@ importers:
         specifier: ^1.5.3
         version: 1.5.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@dub/analytics':
-        specifier: ^0.0.27
-        version: 0.0.27
+        specifier: ^0.0.31
+        version: 0.0.31
       next:
         specifier: 15.1.8
         version: 15.1.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -70,8 +70,8 @@ packages:
   '@calcom/embed-snippet@1.3.3':
     resolution: {integrity: sha512-pqqKaeLB8R6BvyegcpI9gAyY6Xyx1bKYfWvIGOvIbTpguWyM1BBBVcT9DCeGe8Zw7Ujp5K56ci7isRUrT2Uadg==}
 
-  '@dub/analytics@0.0.27':
-    resolution: {integrity: sha512-TbLr+sKWiBsMw1GOLpduZI7skXmrLwZlEoVoHyxq66RvMk/5Fl84QoenlhjdxaX1rlHAkWCcjcbAYcCN7skoKw==}
+  '@dub/analytics@0.0.31':
+    resolution: {integrity: sha512-pDn6HJn0dubFMZGZAH3oXftitbl/0KSYOOrqh1OqpnN7252RhD+V2yL34AtETu4Bb7w7tgE7Lvc4yTAGexBaRg==}
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -1832,7 +1832,7 @@ snapshots:
     dependencies:
       '@calcom/embed-core': 1.5.3
 
-  '@dub/analytics@0.0.27':
+  '@dub/analytics@0.0.31':
     dependencies:
       server-only: 0.0.1
 

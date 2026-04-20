@@ -41,7 +41,7 @@ export const signUpUser = actionClient
     await dub.track.lead({
       clickId,
       eventName: "Sign Up",
-      customerId: user.id,
+      customerExternalId: user.id,
       customerName: user.name,
       customerEmail: user.email,
     });
@@ -71,7 +71,7 @@ export const signUpUser = actionClient
       },
       metadata: {
         dubClickId: clickId,
-        dubCustomerId: user.id,
+        dubCustomerExternalId: user.id,
       },
     });
 
